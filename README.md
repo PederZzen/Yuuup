@@ -8,5 +8,5 @@
 
 ### Wireframe - Low Fidelity
 
-<img width="50%" alt="Skjermbilde 2022-11-17 kl  13 58 01" src="https://user-images.githubusercontent.com/91594315/202453404-c33f54b1-6d2f-4cd5-bc93-41c65b8e8c5e.png"
+<img width="50%" alt="Skjermbilde 2022-11-17 kl  13 58 01" src="https://user-images.githubusercontent.com/91594315/202453404-c33f54b1-6d2f-4cd5-bc93-41c65b8e8c5e.png">
 
