@@ -5,12 +5,17 @@
 ## Table of Contents
 
 - [Project Planning](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#project-planning)
+  - [Style Guide](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#style-guide)
   - [Gantt Chart](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#gantt-chart)
   - [Wireframe - Low fidelity](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe---low-fidelity)
 
 &nbsp;
 
 ## Project planning
+
+### Style Guide
+
+<img width="75%" alt="Skjermbilde 2022-11-17 kl  14 40 01" src="https://user-images.githubusercontent.com/91594315/202461425-3c4c4f03-e090-4e1c-a34d-dc8ac376e758.png">
 
 &nbsp;
 
