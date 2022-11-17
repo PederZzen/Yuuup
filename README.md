@@ -15,7 +15,7 @@
 
 ### Style Guide
 
-<img width="75%" alt="Skjermbilde 2022-11-17 kl  14 40 01" src="https://user-images.githubusercontent.com/91594315/202461425-3c4c4f03-e090-4e1c-a34d-dc8ac376e758.png">
+<img width="50%" alt="Skjermbilde 2022-11-17 kl  14 40 01" src="https://user-images.githubusercontent.com/91594315/202461425-3c4c4f03-e090-4e1c-a34d-dc8ac376e758.png">
 
 &nbsp;
 
