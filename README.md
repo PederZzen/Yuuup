@@ -7,7 +7,7 @@
 - [Project Planning](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#project-planning)
   - [Style Guide](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#style-guide)
   - [Gantt Chart](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#gantt-chart)
-  - [Wireframe - Low fidelity](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe---low-fidelity)
+  - [Wireframe and Prototype](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe---low-fidelity)
 
 &nbsp;
 
