@@ -9,7 +9,7 @@
 - [Project Planning](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#project-planning)
   - [Style Guide](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#style-guide)
   - [Gantt Chart](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#gantt-chart)
-  - [Wireframe and Prototype](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe---low-fidelity)
+  - [Wireframe and Prototype](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe-and-prototype) -[Setup](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#setup)
 
 &nbsp;
 
@@ -34,3 +34,11 @@
 [Prototype - Desktop](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=4%3A675&t=i02IfRRwkKPFmNK2-1)
 
 [Prototype - Mobile](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=44%3A4755&t=i02IfRRwkKPFmNK2-1)
+
+&nbsp;
+
+### Setup
+
+Install with node
+
+`npm i`
