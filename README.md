@@ -25,6 +25,8 @@
 
 &nbsp;
 
-### Wireframe - Low Fidelity
+### Wireframe and Prototype
 
-<img width="50%" alt="Skjermbilde 2022-11-17 kl  13 58 01" src="https://user-images.githubusercontent.com/91594315/202453404-c33f54b1-6d2f-4cd5-bc93-41c65b8e8c5e.png">
+[Wireframe - Low Fidelity](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=0%3A1&t=i02IfRRwkKPFmNK2-1)
+[Prototype - Desktop](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=4%3A675&t=i02IfRRwkKPFmNK2-1)
+[Prototype - Mobile](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=44%3A4755&t=i02IfRRwkKPFmNK2-1)
