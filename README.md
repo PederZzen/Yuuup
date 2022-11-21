@@ -27,7 +27,7 @@
 
 ### Wireframe and Prototype
 
-[Wireframe - Low Fidelity](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=0%3A1&t=i02IfRRwkKPFmNK2-1)
+[Wireframe](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=0%3A1&t=i02IfRRwkKPFmNK2-1)
 
 [Prototype - Desktop](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=4%3A675&t=i02IfRRwkKPFmNK2-1)
 
