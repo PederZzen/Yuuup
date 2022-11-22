@@ -39,6 +39,16 @@
 
 ### Setup
 
+&nbsp;
+
 Install with node
 
 `npm i`
+
+Build
+
+`npm run build`
+
+Build and watch
+
+`npm run watch`
