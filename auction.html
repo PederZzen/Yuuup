@@ -6,33 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./dist/style.css">
-    <script src="./src/js/index.js"></script>
+    <script src="./src/js/index.js" type="module" defer></script>
+    <script src="./src/js/listings.js" defer></script>
     <title>Yup! | Auction</title>
 </head>
 <body class="bg-secondary">
     <header>
-        <nav class="bg-main text-secondary py-4 font-montserrat">
-            <div class="flex justify-between px-2">
-                <div class="space-x-3 font-semibold">
-                    <a href="./index.html" class="f">Yup!</a>
-                    <input type="text" class="rounded">
-                    <a href="./auction.html" class="active-link">Auction</a>
-                    <a href="./sell.html">Sell</a>
-                    <a href="/profile.html">Profile</a>
-                </div>
-                <div class="space-x-3 font-semibold">
-                    <a href="./login.html" class="">Login</a>
-                    <a href="./register.html" class="bg-secondary text-main py-1 px-3 rounded">Register</a>
+        <nav class="bg-main fixed w-full top-0">
+            <div class="max-w-7xl mx-auto block px-2 md:px-8 items-center font-medium text-secondary py-4 font-montserrat">
+                <div class="flex justify-between">
+                    <div class="flex items-center space-x-5">
+                        <div>
+                            <a href="./index.html" class="font-bold text-lg">Yup!</a>
+                        </div>
+                        <div class="space-x-2 hidden md:flex">
+                            <a href="./auction.html" class="active-link">Auction</a>
+                            <a href="./sell.html" class="">Sell</a>
+                            <a href="/profile.html" class="">Profile</a>
+                        </div>
+                    </div>
+                    <div class="space-x-3 items-center hidden md:flex">
+                        <a href="./login.html" class="">Login</a>
+                        <a href="./register.html" class="bg-secondary font-bold text-main px-2 py-1 rounded">Register</a>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button>
+                            <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="7" width="32" height="5" rx="2.5" fill="#F5F5F5"/>
+                                <rect y="15" width="17" height="5" rx="2.5" fill="#F5F5F5"/>
+                                <rect x="15" width="17" height="5" rx="2.5" fill="#F5F5F5"/>
+                            </svg>                        
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
+        <!-- <div class="navbar"></div> -->
     </header>
     <main class="text-main">
-        <div class="text-center mt-20">
+        <div class="text-center mt-40">
             <h1 class="text-xl font-extrabold">Auction</h1>
             <h2 class="text-md font-bold text-gray mt-1">Brand new, collectors items and stolen </br>stuff. We got it all!</h2>
         </div>
-        <section id="auctionItems"></section>
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-7xl mx-auto px-2 md:px-8 mt-20" id="auctionItems"></section>
     </main>
 </body>
 </html>
