@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .active-link {
-    color: #d2d2d2;
+    font-weight: bolder;
 }
 
 .toggleMenu {

@@ -517,10 +517,6 @@ video {
   position: fixed;
 }
 
-.absolute {
-  position: absolute;
-}
-
 .relative {
   position: relative;
 }
@@ -536,6 +532,11 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mt-40 {
@@ -719,7 +720,7 @@ video {
 }
 
 .active-link {
-  color: #d2d2d2;
+  font-weight: bolder;
 }
 
 .toggleMenu {
@@ -757,9 +758,18 @@ video {
   background-color: rgb(55 55 55 / var(--tw-bg-opacity));
 }
 
+.hover\:font-bold:hover {
+  font-weight: 700;
+}
+
 .hover\:text-accent:hover {
   --tw-text-opacity: 1;
   color: rgb(255 92 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-gray:hover {
+  --tw-text-opacity: 1;
+  color: rgb(132 132 132 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {

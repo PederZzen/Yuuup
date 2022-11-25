@@ -13,12 +13,14 @@ let displayListings = (items) => {
 
         newItem += `
         <div class="border mx-2 card font-montserrat">
-            <img src="${item.media}" alt="${item.title}">
-            <h2 class="font-bold py-1">${item.title}</h2>
-            <p class="text-gray">Current Bid<p/>
-            <h2 class="font-bold">${item.bids.length}</h2>
-            <p class="text-gray">Auction ends at<p/>
-            <p class="font-bold">${deadline}</p>
+            <a href="../item.html?id="${item.id}">
+                <img src="${item.media}" alt="${item.title}">
+                <h2 class="font-bold py-1">${item.title}</h2>
+                <p class="text-gray">Current Bid<p/>
+                <h2 class="font-bold">${item.bids.length}</h2>
+                <p class="text-gray">Auction ends at<p/>
+                <p class="font-bold">${deadline}</p>
+            </a>
         </div>`
     });
 
