@@ -1,3 +1,24 @@
+import { token } from "./api.js"
+import { credits } from "./api.js"
+
+let navElement = "";
+
+if (token) {
+    navElement = `            
+    <div class="space-x-3 items-center hidden md:flex">
+        <p class="text-accent">${credits} Credits</p>
+        <a href="/" class="bg-secondary font-bold text-main px-2 py-1 rounded" id="logOutBtn">Logout</a>
+    </div>
+    `
+} else {
+    navElement = `            
+    <div class="space-x-3 items-center hidden md:flex">
+        <a href="./login.html" class="hover:text-gray">Login</a>
+        <a href="./register.html" class="bg-secondary font-bold text-main px-2 py-1 rounded">Register</a>
+    </div>
+    `
+}
+
 export const navbar = document.getElementById("navbar").innerHTML = `
 <div class="bg-main fixed w-full top-0">
     <div class="max-w-7xl mx-auto block px-2 md:px-8 items-center font-medium text-secondary py-4 font-montserrat">
@@ -12,10 +33,7 @@ export const navbar = document.getElementById("navbar").innerHTML = `
                     <a href="/profile.html" class="hover:text-gray">Profile</a>
                 </div>
             </div>
-            <div class="space-x-3 items-center hidden md:flex">
-                <a href="./login.html" class="hover:text-gray">Login</a>
-                <a href="./register.html" class="bg-secondary font-bold text-main px-2 py-1 rounded">Register</a>
-            </div>
+            <div class="space-x-3 items-center hidden md:flex">${navElement}</div>
             <div class="md:hidden flex items-center">
                 <button>
                     <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,3 +48,11 @@ export const navbar = document.getElementById("navbar").innerHTML = `
 </div>
 `
 
+if (token) {
+    const logOutButton = document.getElementById("logOutBtn");
+    
+    logOutButton.addEventListener("click", () => {
+        window.location.href = "../../index.html";
+        localStorage.clear();
+    })
+}

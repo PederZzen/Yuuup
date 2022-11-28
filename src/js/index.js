@@ -1,1 +1,1 @@
-import { navbar } from "./utilities.js";
+import { navbar } from "./navigation.js";

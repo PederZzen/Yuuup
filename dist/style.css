@@ -529,10 +529,6 @@ video {
   top: 10rem;
 }
 
-.z-10 {
-  z-index: 10;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -570,6 +566,10 @@ video {
 
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .block {
@@ -632,10 +632,6 @@ video {
   gap: 2.5rem;
 }
 
-.gap-3 {
-  gap: 0.75rem;
-}
-
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
@@ -673,15 +669,6 @@ video {
   background-color: rgb(255 92 0 / var(--tw-bg-opacity));
 }
 
-.bg-dark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(43 43 43 / var(--tw-bg-opacity));
-}
-
-.bg-opacity-60 {
-  --tw-bg-opacity: 0.6;
-}
-
 .p-10 {
   padding: 2.5rem;
 }
@@ -716,10 +703,6 @@ video {
 
 .text-center {
   text-align: center;
-}
-
-.text-right {
-  text-align: right;
 }
 
 .font-montserrat {
@@ -787,16 +770,6 @@ video {
   color: rgb(255 92 0 / var(--tw-text-opacity));
 }
 
-.placeholder-main::-moz-placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(55 55 55 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-main::placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(55 55 55 / var(--tw-placeholder-opacity));
-}
-
 .active-link {
   font-weight: bolder;
 }
@@ -852,11 +825,6 @@ video {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .md\:bg-main {
-    --tw-bg-opacity: 1;
-    background-color: rgb(55 55 55 / var(--tw-bg-opacity));
   }
 
   .md\:px-8 {

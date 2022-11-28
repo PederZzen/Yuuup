@@ -1,12 +1,14 @@
+import { itemUrl } from "./api.js";
+
 const output = document.getElementById("singleItem");
 const queryString = document.location.search;
 const searchParams = new URLSearchParams(queryString);
 const id = searchParams.get("id");
 
+const url = itemUrl + id
+
 console.log(id);
 
-const API_BASE_URL = "https://nf-api.onrender.com/api/v1/auction";
-const itemUrl = `${API_BASE_URL}/listings/${id}`;
 
 let listItem = (item) => {
     document.title = `Yup! | ${item.title}`

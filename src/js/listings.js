@@ -1,5 +1,4 @@
-const API_BASE_URL = "https://nf-api.onrender.com/api/v1/auction";
-const allEntriesUrl = `${API_BASE_URL}/listings?_seller=true&_bids=true`;
+import { allEntriesUrl } from "./api.js";
 
 const output = document.getElementById("auctionItems");
 
@@ -13,7 +12,7 @@ let displayListings = (items) => {
 
         newItem += `
         <div class="border mx-2 card font-montserrat">
-            <a href="../item.html?id="${item.id}">
+            <a href="./item.html?id="${item.id}">
                 <img src="${item.media}" alt="${item.title}">
                 <h2 class="font-bold py-1">${item.title}</h2>
                 <p class="text-gray">Current Bid<p/>
