@@ -1,5 +1,7 @@
 # Semester Project 2
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a5b135dd-506b-4aa4-b44a-abee25a67172/deploy-status)](https://app.netlify.com/sites/yupauctions/deploys)
+
 [Assignment](https://github.com/PederZzen/Semester-project-2/files/10056804/semester.project.2.pdf)
 
 &nbsp;

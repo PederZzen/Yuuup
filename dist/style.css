@@ -517,16 +517,12 @@ video {
   position: fixed;
 }
 
-.relative {
-  position: relative;
+.top-40 {
+  top: 10rem;
 }
 
 .top-0 {
   top: 0px;
-}
-
-.top-40 {
-  top: 10rem;
 }
 
 .mx-auto {
@@ -564,10 +560,6 @@ video {
   margin-top: 1rem;
 }
 
-.mt-6 {
-  margin-top: 1.5rem;
-}
-
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -592,16 +584,16 @@ video {
   display: none;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-96 {
   width: 24rem;
 }
 
 .w-40 {
   width: 10rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-7xl {
@@ -630,6 +622,10 @@ video {
 
 .gap-10 {
   gap: 2.5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
@@ -682,11 +678,6 @@ video {
   padding-right: 0.5rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -695,6 +686,11 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .text-left {
@@ -707,11 +703,6 @@ video {
 
 .font-montserrat {
   font-family: Montserrat, sans-serif;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .text-xl {
@@ -734,25 +725,25 @@ video {
   line-height: 2rem;
 }
 
-.font-medium {
-  font-weight: 500;
-}
-
-.font-bold {
-  font-weight: 700;
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-extrabold {
   font-weight: 800;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
 .font-semibold {
   font-weight: 600;
 }
 
-.text-secondary {
-  --tw-text-opacity: 1;
-  color: rgb(245 245 245 / var(--tw-text-opacity));
+.font-medium {
+  font-weight: 500;
 }
 
 .text-main {
@@ -765,34 +756,14 @@ video {
   color: rgb(132 132 132 / var(--tw-text-opacity));
 }
 
+.text-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(245 245 245 / var(--tw-text-opacity));
+}
+
 .text-accent {
   --tw-text-opacity: 1;
   color: rgb(255 92 0 / var(--tw-text-opacity));
-}
-
-.active-link {
-  font-weight: bolder;
-}
-
-.toggleMenu {
-  display: flex;
-  flex-direction: column;
-}
-
-.card {
-  margin-bottom: 4rem;
-}
-
-.card img {
-  height: 15rem;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 5px;
-}
-
-.hero {
-  height: 90vh;
 }
 
 .hover\:border:hover {
@@ -812,6 +783,11 @@ video {
 .hover\:text-accent:hover {
   --tw-text-opacity: 1;
   color: rgb(255 92 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-gray:hover {
+  --tw-text-opacity: 1;
+  color: rgb(132 132 132 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {

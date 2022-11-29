@@ -5,17 +5,13 @@ let navElement = "";
 
 if (token) {
     navElement = `            
-    <div class="space-x-3 items-center hidden md:flex">
-        <p class="text-accent">${credits} Credits</p>
-        <a href="/" class="bg-secondary font-bold text-main px-2 py-1 rounded" id="logOutBtn">Logout</a>
-    </div>
+    <p class="text-accent">${credits} Credits</p>
+    <a href="/" class="bg-secondary font-bold text-main px-2 py-1 rounded" id="logOutBtn">Logout</a>
     `
 } else {
     navElement = `            
-    <div class="space-x-3 items-center hidden md:flex">
-        <a href="./login.html" class="hover:text-gray">Login</a>
-        <a href="./register.html" class="bg-secondary font-bold text-main px-2 py-1 rounded">Register</a>
-    </div>
+    <a href="./login.html" class="hover:text-gray">Login</a>
+    <a href="./register.html" class="bg-secondary font-bold text-main px-2 py-1 rounded">Register</a>
     `
 }
 

@@ -10,13 +10,27 @@ let displayListings = (items) => {
         let date = new Date(item.endsAt);
         let deadline = date.toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
 
+        let allBids = [];
+
+        if(item.bids.length == 0) {
+            allBids.push(0)
+        } else {
+            item.bids.forEach(e => {
+                allBids.push(e.amount)
+            });
+        }
+    
+        let highestBid = Math.max(...allBids);
+
         newItem += `
         <div class="border mx-2 card font-montserrat">
-            <a href="./item.html?id="${item.id}">
-                <img src="${item.media}" alt="${item.title}">
+            <a href="./item.html?id=${item.id}">
+                <div class="relative h-2">
+                    <img class="absolute h-full w-full" src="${item.media}" alt="${item.title}">
+                </div>
                 <h2 class="font-bold py-1">${item.title}</h2>
                 <p class="text-gray">Current Bid<p/>
-                <h2 class="font-bold">${item.bids.length}</h2>
+                <h2 class="font-bold">${highestBid}</h2>
                 <p class="text-gray">Auction ends at<p/>
                 <p class="font-bold">${deadline}</p>
             </a>
