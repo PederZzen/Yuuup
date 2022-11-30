@@ -48,7 +48,7 @@ if (token) {
     const logOutButton = document.getElementById("logOutBtn");
     
     logOutButton.addEventListener("click", () => {
-        window.location.href = "../../index.html";
         localStorage.clear();
+        window.location.href = history.back(); 
     })
 }
