@@ -6,14 +6,17 @@ const queryString = document.location.search;
 const searchParams = new URLSearchParams(queryString);
 const id = searchParams.get("id");
 
+const mediaPlaceholder = "../../img/noMedia.png"
+const profileImage = "../../img/ProfileImage.png"
+
 const itemUrl = listingsUrl + id + urlFlag
 
 let listItem = (item) => {
     document.title = `Yup! | ${item.title}`
 
     let created = new Date(item.created).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
-
     let deadline = new Date(item.endsAt).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+
 
     let allBids = [];
 
@@ -28,23 +31,43 @@ let listItem = (item) => {
     let highestBid = Math.max(...allBids);
 
     output.innerHTML = `
-    <div>
-        <img src="${item.media}" alt="${item.title}">
-    </div>
-    <div class="">
-        <h1 class="">${item.title}</h1>
-        <h2>Current Bid</h2>
-        <h3>${highestBid}</h3>
-        <p>${item.bids.length} bids</p>
-        <p>You must be logged in to place bid. <a href="./login.html" class="text-accent">Login?</a></p>
-        <h4>Listed</h4>
-        <p>${created}</p>
-        <h4>Ends at</h4>
-        <p>${deadline}</p>
-        <h4>Seller</h4>
-        <div class="flex">
-            <img src="${item.seller.avatar}" alt="Profile picture of ${item.seller.name}" class="profile_picture_thumbnail">
-            <p>${item.seller.name}</p>
+    <div class="grid grid-cols-2 gap-10 font-montserrat">
+        <div class="">
+            <img class="" src="${item.media}" alt="">
+        </div>
+        <div class="">
+            <h1 class="text-2xl font-bold">Selling all my money</h1>
+            <div class="mt-4 flex justify-between">
+                <div>
+                    <h2 class="font-bold text-gray">Current bid</h2>
+                    <p class="text-xl font-bold">50 Credits</p>
+                </div>
+                <div class="flex flex-col justify-end">
+                    <p class="font-bold text-gray">8 bids</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <p class="font-bold text-gray">You must be logged in to place bid. <a class="text-accent" href="#">Login?</a></p>
+            </div>
+            <div class="mt-4">
+                <h2 class="font-bold text-gray">Listed</h2>
+                <p>8. November at 10:22</p>
+            </div>
+            <div class="mt-4">
+                <h2 class="font-bold text-gray">Ends at</h2>
+                <p>10. November at 10:22</p>
+            </div>
+            <div class="mt-4">
+                <h2 class="font-bold text-gray">Seller</h2>
+                <div class="flex content-center">
+                    <div>
+                        <img class="w-10" src="./img/ProfileImage.png" alt="">
+                    </div>
+                    <div class="flex flex-col justify-center m-2">
+                        <p class="font-bold">Burt Macklin</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     `

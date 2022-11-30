@@ -1,6 +1,7 @@
 import { allEntriesUrl } from "./api.js";
 
 const output = document.getElementById("auctionItems");
+const placeholderImage = "../../img/noMedia.png"
 
 let displayListings = (items) => {
     output.innerHTML = "";
@@ -23,10 +24,10 @@ let displayListings = (items) => {
         let highestBid = Math.max(...allBids);
 
         newItem += `
-        <div class="border mx-2 card font-montserrat">
+        <div class="mx-2 card font-montserrat">
             <a href="./item.html?id=${item.id}">
                 <div class="relative h-2">
-                    <img class="absolute h-full w-full" src="${item.media}" alt="${item.title}">
+                    <img class="absolute h-full w-full" src="${item.media.length > 0 ? item.media : placeholderImage}" alt="${item.title}">
                 </div>
                 <h2 class="font-bold py-1">${item.title}</h2>
                 <p class="text-gray">Current Bid<p/>
