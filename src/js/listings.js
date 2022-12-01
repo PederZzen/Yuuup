@@ -1,7 +1,6 @@
 import { allEntriesUrl } from "./api.js";
 
 const output = document.getElementById("auctionItems");
-const placeholderImage = "../../img/noMedia.png"
 
 let displayListings = (items) => {
     output.innerHTML = "";
@@ -23,11 +22,20 @@ let displayListings = (items) => {
     
         let highestBid = Math.max(...allBids);
 
+        let media;
+        if (item.media.length > 1) {
+            media = item.media[0]
+        } else if (item.media.length == 0) {
+            media = "../../img/noMedia.png"
+        } else {
+            media = item.media;
+        }
+
         newItem += `
-        <div class="mx-2 card font-montserrat">
+        <div class="font-montserrat">
             <a href="./item.html?id=${item.id}">
-                <div class="relative h-2">
-                    <img class="absolute h-full w-full" src="${item.media.length > 0 ? item.media : placeholderImage}" alt="${item.title}">
+                <div class="">
+                    <img class="" src="${media}" alt="${item.title}">
                 </div>
                 <h2 class="font-bold py-1">${item.title}</h2>
                 <p class="text-gray">Current Bid<p/>
@@ -36,6 +44,8 @@ let displayListings = (items) => {
                 <p class="font-bold">${deadline}</p>
             </a>
         </div>`
+
+        console.log(item.title + ":" + item.media);
     });
 
     output.innerHTML = newItem;

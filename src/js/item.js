@@ -1,5 +1,5 @@
 import { listingsUrl } from "./api.js";
-import { urlFlag } from "./api.js";
+import { urlFlags } from "./api.js";
 import { token } from "./api.js";
 
 const output = document.getElementById("singleItem");
@@ -10,7 +10,7 @@ const id = searchParams.get("id");
 const mediaPlaceholder = "../../img/noMedia.png";
 const profileImage = "../../img/ProfileImage.png";
 
-const itemUrl = listingsUrl + id + urlFlag;
+const itemUrl = listingsUrl + id + urlFlags;
 
 
 let listItem = (item) => {
@@ -36,11 +36,21 @@ let listItem = (item) => {
     if (token) {
         isLoggedIn = true;
     }
+
+
+    let media;
+    if (item.media.length > 1) {
+        media = item.media[0]
+    } else if (item.media.length == 0) {
+        media = "../../img/noMedia.png"
+    } else {
+        media = item.media;
+    }
     
     const canBid = `
-        <div class="flex border-2">
-            <input class="p-2" type="text" placeholder="${highestBid + 10}">
-            <input class="hover:cursor-pointer bg-main text-secondary p-2 font-bold" type="submit" value="Place Bid"
+        <div class="flex">
+            <input class="p-2 border-2 rounded-l" type="text" placeholder="${highestBid + 10}">
+            <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold">Place bid</button>
         </div>
     `
     const cannotBid = `
@@ -52,7 +62,7 @@ let listItem = (item) => {
     output.innerHTML = `
     <div class="grid grid-cols-2 gap-10">
         <div class="">
-            <img class="" src="${item.media}" alt="">
+            <img class="" src="${media}" alt="">
         </div>
         <div class="">
             <h1 class="text-2xl font-bold">${item.title}</h1>
@@ -76,9 +86,9 @@ let listItem = (item) => {
             </div>
             <div class="mt-4">
                 <h2 class="font-bold text-gray">Seller</h2>
-                <div class="flex content-center mt-2">
-                    <div>
-                        <img class="w-10" src="${item.seller.avatar}" alt="">
+                <div class="flex items-center mt-2">
+                    <div class="">
+                        <img style="height: 2rem; width: 2rem; object-fit: cover; border-radius: 100%" src="${item.seller.avatar}" alt="${item.seller.name}">
                     </div>
                     <div class="flex flex-col justify-center m-2">
                         <p class="font-bold">${item.seller.name}</p>
