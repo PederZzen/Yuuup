@@ -1,6 +1,8 @@
 import { listingsUrl } from "./api.js";
 import { urlFlags } from "./api.js";
 import { token } from "./api.js";
+import { username } from "./api.js";
+import { deleteListing } from "./delete.js";
 
 const output = document.getElementById("singleItem");
 const queryString = document.location.search;
@@ -59,10 +61,21 @@ let listItem = (item) => {
         </div>
     `
 
+    let deleteButton;
+    
+    if (item.seller.name === username) {
+        deleteButton = `
+            <button class="bg-main rounded p-1 mt-2 font-bold text-secondary" id="deleteButton">Delete</button>
+        `
+    } else {
+        deleteButton = ""
+    }
+
     output.innerHTML = `
     <div class="grid grid-cols-2 gap-10">
         <div class="">
             <img class="" src="${media}" alt="">
+            ${deleteButton}
         </div>
         <div class="">
             <h1 class="text-2xl font-bold">${item.title}</h1>
@@ -102,6 +115,19 @@ let listItem = (item) => {
         <div class="mt-4">${item.description}</div>
     </div>
     `
+    
+    const deleteBtn = document.querySelector("#deleteButton");
+    
+    deleteBtn.addEventListener("click", () => {
+        if (confirm("Are you sure you want to delete this listing?") == true) {
+            deleteListing(listingsUrl + id)
+            output.innerHTML = `
+            <div class="mx-auto text-center">
+                <h1 class="text-4xl font-bold">Listing was deleted successfully!</h1>
+                <h2 class=""text-xl mt-4 font bold text-gray>Redirecting to auction site...</h2>
+            </div>`
+        }
+    })
 
 }
 

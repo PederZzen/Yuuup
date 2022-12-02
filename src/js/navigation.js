@@ -2,18 +2,24 @@ import { token } from "./api.js"
 import { credits } from "./api.js"
 
 let navElement;
+let sellLink = "./login.html";
+let profileLink = "./login.html";
 
 if (token) {
     navElement = `            
     <p class="text-accent">${credits} Credits</p>
     <a href="/" class="bg-secondary font-bold text-main px-2 py-1 rounded" id="logOutBtn">Logout</a>
     `
+    sellLink = "./sell.html";
+    profileLink = "./profile.html";
 } else {
     navElement = `            
     <a href="./login.html" class="hover:text-gray">Login</a>
     <a href="./register.html" class="bg-secondary font-bold text-main px-2 py-1 rounded">Register</a>
     `
 }
+
+
 
 export const navbar = document.getElementById("navbar").innerHTML = `
 <section class="bg-main">
@@ -33,8 +39,8 @@ export const navbar = document.getElementById("navbar").innerHTML = `
             </div>
             <div class="hidden md:flex gap-2">
                 <a href="./auction.html" class="hover:text-gray">Auction</a>
-                <a href="./sell.html" class="hover:text-gray">Sell</a>
-                <a href="/profile.html" class="hover:text-gray">Profile</a>
+                <a href="${sellLink}" class="hover:text-gray">Sell</a>
+                <a href="${profileLink}" class="hover:text-gray">Profile</a>
             </div>
         </div>
         <div class="hidden md:flex items-center gap-2">
@@ -58,6 +64,6 @@ if (token) {
     
     logOutButton.addEventListener("click", () => {
         localStorage.clear();
-        window.location.href = history.back(); 
+        window.location.href = "/"
     })
 }

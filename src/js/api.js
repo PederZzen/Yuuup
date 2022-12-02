@@ -7,3 +7,4 @@ export const loginUrl = `${API_BASE_URL}/auth/login`;
 
 export const token = localStorage.getItem("accessToken");
 export const credits = localStorage.getItem("credits");
+export const username = localStorage.getItem("username");
