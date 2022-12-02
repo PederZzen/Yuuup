@@ -1,0 +1,24 @@
+{
+  "name": "semester-project-2",
+  "version": "1.0.0",
+  "description": "[Assignment](https://github.com/PederZzen/Semester-project-2/files/10056804/semester.project.2.pdf)",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/css/style.css -o ./dist/style.css",
+    "watch": "tailwindcss -i ./src/css/style.css -o ./dist/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PederZzen/Semester-project-2.git"
+  },
+  "keywords": [],
+  "author": "Espen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PederZzen/Semester-project-2/issues"
+  },
+  "homepage": "https://github.com/PederZzen/Semester-project-2#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
