@@ -3,17 +3,14 @@ import { urlFlags } from "./api.js";
 import { token } from "./api.js";
 import { username } from "./api.js";
 import { deleteListing } from "./delete.js";
+import { placeBid } from "./bid.js";
 
 const output = document.getElementById("singleItem");
 const queryString = document.location.search;
 const searchParams = new URLSearchParams(queryString);
 const id = searchParams.get("id");
-
-const mediaPlaceholder = "../../img/noMedia.png";
 const profileImage = "../../img/ProfileImage.png";
-
 const itemUrl = listingsUrl + id + urlFlags;
-
 
 let listItem = (item) => {
     document.title = `Yup! | ${item.title}`
@@ -51,8 +48,8 @@ let listItem = (item) => {
     
     const canBid = `
         <div class="flex">
-            <input class="p-2 border-2 rounded-l" type="text" placeholder="${highestBid + 10}">
-            <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold">Place bid</button>
+            <input class="p-2 border-2 rounded-l" type="text" value="${highestBid + 10}" id="bidInput">
+            <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold" id="bidButton" >Place bid</button>
         </div>
     `
     const cannotBid = `
@@ -62,8 +59,10 @@ let listItem = (item) => {
     `
 
     let deleteButton;
+    let isOwner = false;
     
     if (item.seller.name === username) {
+        isOwner = true;
         deleteButton = `
             <button class="bg-main rounded p-1 mt-2 font-bold text-secondary" id="deleteButton">Delete</button>
         `
@@ -99,11 +98,11 @@ let listItem = (item) => {
             </div>
             <div class="mt-4">
                 <h2 class="font-bold text-gray">Seller</h2>
-                <div class="flex items-center mt-2">
-                    <div class="">
-                        <img style="height: 2rem; width: 2rem; object-fit: cover; border-radius: 100%" src="${item.seller.avatar}" alt="${item.seller.name}">
+                <div class="flex grid-2 items-center mt-2">
+                    <div>
+                        <img style="height: 2rem; width: 2rem; object-fit: cover; border-radius: 100%" src="${item.seller.avatar ? item.seller.avatar : profileImage}" alt="${item.seller.name}">
                     </div>
-                    <div class="flex flex-col justify-center m-2">
+                    <div class="flex flex-col justify-center">
                         <p class="font-bold">${item.seller.name}</p>
                     </div>
                 </div>
@@ -118,16 +117,23 @@ let listItem = (item) => {
     
     const deleteBtn = document.querySelector("#deleteButton");
     
-    deleteBtn.addEventListener("click", () => {
-        if (confirm("Are you sure you want to delete this listing?") == true) {
-            deleteListing(listingsUrl + id)
-            output.innerHTML = `
-            <div class="mx-auto text-center">
+    if (isOwner) {
+        deleteBtn.addEventListener("click", () => {
+            if (confirm("Are you sure you want to delete this listing?") == true) {
+                deleteListing(listingsUrl + id)
+                output.innerHTML = `
+                <div class="mx-auto text-center">
                 <h1 class="text-4xl font-bold">Listing was deleted successfully!</h1>
-                <h2 class=""text-xl mt-4 font bold text-gray>Redirecting to auction site...</h2>
-            </div>`
-        }
-    })
+                <h2 class="text-xl mt-4 font bold text-gray">Redirecting to auction site...</h2>
+                </div>`
+            }
+        })
+    }
+    
+    
+    const bidButton = document.getElementById("bidButton");
+
+    bidButton.addEventListener("click", placeBid)
 
 }
 
@@ -141,4 +147,5 @@ fetch (itemUrl, {
  })
  .catch((error) => {
     console.error(error);
- });
+});
+
