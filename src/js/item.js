@@ -4,6 +4,7 @@ import { token } from "./api.js";
 import { username } from "./api.js";
 import { deleteListing } from "./delete.js";
 import { placeBid } from "./bid.js";
+import { bidError } from "./bid.js";
 
 const output = document.getElementById("singleItem");
 const queryString = document.location.search;
@@ -17,6 +18,11 @@ let listItem = (item) => {
     
     let created = new Date(item.created).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
     let deadline = new Date(item.endsAt).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+
+    const now = new Date()
+    if (now > deadline) {
+        item.media = ""
+    }
 
     let allBids = [];
 
@@ -36,7 +42,6 @@ let listItem = (item) => {
         isLoggedIn = true;
     }
 
-
     let media;
     if (item.media.length > 1) {
         media = item.media[0]
@@ -46,18 +51,18 @@ let listItem = (item) => {
         media = item.media;
     }
     
-    const canBid = `
+    let canBid = `
         <div class="flex">
             <input class="p-2 border-2 rounded-l" type="text" value="${highestBid + 10}" id="bidInput">
-            <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold" id="bidButton" >Place bid</button>
+            <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold" id="bidButton">Place bid</button>
         </div>
     `
+
     const cannotBid = `
         <div>
             <p class="font-bold text-gray">You must be logged in to place bid. <a class="text-accent" href="./login.html">Login?</a></p>
         </div>
     `
-
     let deleteButton;
     let isOwner = false;
     
@@ -66,6 +71,9 @@ let listItem = (item) => {
         deleteButton = `
             <button class="bg-main rounded p-1 mt-2 font-bold text-secondary" id="deleteButton">Delete</button>
         `
+        canBid = `
+            <div class="font-bold text-gray">Would be a bit strange to buy your own stuff, right?</div>
+        `;
     } else {
         deleteButton = ""
     }
@@ -123,16 +131,14 @@ let listItem = (item) => {
                 deleteListing(listingsUrl + id)
                 output.innerHTML = `
                 <div class="mx-auto text-center">
-                <h1 class="text-4xl font-bold">Listing was deleted successfully!</h1>
-                <h2 class="text-xl mt-4 font bold text-gray">Redirecting to auction site...</h2>
+                    <h1 class="text-4xl font-bold">Listing was deleted successfully!</h1>
+                    <h2 class="text-xl mt-4 font bold text-gray">Redirecting to auction site...</h2>
                 </div>`
             }
         })
     }
     
-    
     const bidButton = document.getElementById("bidButton");
-
     bidButton.addEventListener("click", placeBid)
 
 }

@@ -5,25 +5,27 @@ const queryString = document.location.search;
 const searchParams = new URLSearchParams(queryString);
 const id = searchParams.get("id");
 
-const bidUrl = `${listingsUrl}${id}/bids`
+const bidUrl = `${listingsUrl}${id}/bids`;
 
 export let placeBid = (e) => {
     e.preventDefault();
-    const bid = document.getElementById("bidInput").value.trim();
-
+    
+    let bidInput = document.getElementById("bidInput");
+    const bid = bidInput.value.trim()
     const amount = parseInt(bid);
-
+    
     const data = {
         amount,
     }
-
-    if (isNaN(amount)) {
-        console.log("Must be a number, dipshit..");
+    
+    if (isNaN(amount) || amount.length == "") {
+        bidInput.value = ""
+        bidInput.setAttribute("placeholder", "Bid must be a number");
     } else {
         bidOnItem(bidUrl, data)
     }
-
 }
+export let bidError = `&nbsp;`;
 
 async function bidOnItem (url, data) {
     try {
@@ -35,10 +37,8 @@ async function bidOnItem (url, data) {
             },
             body: JSON.stringify(data)
         }
-        const response = await fetch (url, options)
-        console.log(response);
-        const json = await response.json();
-        console.log(json);
+        await fetch (url, options)
+        location.reload()
     } catch (error) {
         console.log(error);
     }

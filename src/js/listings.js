@@ -1,9 +1,8 @@
 import { allEntriesUrl } from "./api.js";
 
-const output = document.getElementById("auctionItems");
+const output = document.getElementById("listings");
 
 let displayListings = (items) => {
-    output.innerHTML = "";
     let newItem = "";
 
     items.forEach(item => {
@@ -11,7 +10,7 @@ let displayListings = (items) => {
         let deadline = date.toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
 
         let allBids = [];
-
+        
         if(item.bids.length == 0) {
             allBids.push(0)
         } else {
@@ -19,9 +18,9 @@ let displayListings = (items) => {
                 allBids.push(e.amount)
             });
         }
-    
+        
         let highestBid = Math.max(...allBids);
-
+        
         let media;
         if (item.media.length > 1) {
             media = item.media[0]
@@ -30,7 +29,7 @@ let displayListings = (items) => {
         } else {
             media = item.media;
         }
-
+        
         newItem += `
         <div class="font-montserrat">
             <a href="./item.html?id=${item.id}">
@@ -44,11 +43,10 @@ let displayListings = (items) => {
                 <p class="font-bold">${deadline}</p>
             </a>
         </div>`
-
-        console.log(item.title + ":" + item.media);
     });
 
     output.innerHTML = newItem;
+
 }
 
 fetch (allEntriesUrl, {
@@ -59,7 +57,6 @@ fetch (allEntriesUrl, {
 })
  .then((response) => response.json())
  .then((data) => {
-    console.log(data);
     displayListings(data)
  })
  .catch((error) => {

@@ -4,6 +4,7 @@ export const listingsUrl = `${API_BASE_URL}/listings/`;
 export const allEntriesUrl = `${API_BASE_URL}/listings${urlFlags}`;
 export const registerUrl = `${API_BASE_URL}/auth/register`;
 export const loginUrl = `${API_BASE_URL}/auth/login`;
+export const profileUrl = `&{API_BASE_URL}/profiles`;
 
 export const token = localStorage.getItem("accessToken");
 export const credits = localStorage.getItem("credits");
