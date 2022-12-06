@@ -15,11 +15,16 @@
         <nav id="navbar"></nav>
     </header>
     <main class="text-main">
-        <div class="text-center mt-20">
+        <div class="text-center mt-20" id="auctionHero">
             <h1 class="text-xl font-extrabold">Auction</h1>
             <h2 class="text-md font-bold text-gray mt-1">Brand new, collectors items and stolen </br>stuff. We got it all!</h2>
         </div>
         <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-7xl mx-auto px-2 md:px-8" id="listings"></section>
+        <div id="errorMsg"></div>
+        <div id="loadingSpinner" class="text-center flex flex-col items-center">
+            <img src="./img/Eclipse-1s-200px.gif" alt="Loading icon">
+            <span class="font-bold font-montserrat">Loading Items...</span>
+        </div>
     </main>
     <footer></footer>
 </body>

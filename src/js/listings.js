@@ -1,6 +1,9 @@
 import { allEntriesUrl } from "./api.js";
 
 const output = document.getElementById("listings");
+const loadingSpinner = document.querySelector("#loadingSpinner");
+const errorMsg = document.querySelector("#errorMsg");
+const auctionHero = document.querySelector("#auctionHero");
 
 let displayListings = (items) => {
     let newItem = "";
@@ -61,4 +64,16 @@ fetch (allEntriesUrl, {
  })
  .catch((error) => {
     console.error(error);
+    auctionHero.classList.add("hidden")
+    errorMsg.innerHTML = `
+    <div class="font-extrabold font-montserrat flex flex-col items-center text-center gap-4">
+        <h2 class="text-4xl">1+1=11</h2>
+        <h3 class="text-xl">Sorry, an error has occured</h3>
+        <p class="text-gray w-1/2">Most likely you have been fiddeling with something you should not fiddle with. 
+        Or maybe there is an actual error? 
+        Dont ask me, i am just an error message.</p>
+    </div>`
+ })
+ .finally(() => {
+    loadingSpinner.classList.add("hidden")
  });

@@ -1,17 +1,17 @@
 import { listingsUrl } from "./api.js";
-import { urlFlags } from "./api.js";
+import { listingsFlag } from "./api.js";
 import { token } from "./api.js";
 import { username } from "./api.js";
 import { deleteListing } from "./delete.js";
 import { placeBid } from "./bid.js";
-import { bidError } from "./bid.js";
 
 const output = document.getElementById("singleItem");
 const queryString = document.location.search;
 const searchParams = new URLSearchParams(queryString);
 const id = searchParams.get("id");
 const profileImage = "../../img/ProfileImage.png";
-const itemUrl = listingsUrl + id + urlFlags;
+const itemUrl = listingsUrl + id + listingsFlag;
+const errorMsg = document.querySelector("#errorMsg");
 
 let listItem = (item) => {
     document.title = `Yup! | ${item.title}`
@@ -19,22 +19,27 @@ let listItem = (item) => {
     let created = new Date(item.created).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
     let deadline = new Date(item.endsAt).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
 
-    const now = new Date()
-    if (now > deadline) {
-        item.media = ""
-    }
-
     let allBids = [];
+    let highestBidder;
 
     if(item.bids.length == 0) {
-        allBids.push(0)
+        allBids.push({
+            amount: 0, 
+            bidder: "No bids! Be the first to place a bid on this item?"
+        })
+        highestBidder = allBids
     } else {
         item.bids.forEach(e => {
-            allBids.push(e.amount)
+            const amount = e.amount;
+            const bidder = e.bidderName;
+            allBids.push({
+                amount, bidder
+            })
         });
+        highestBidder = allBids.slice(-1)
     }
 
-    let highestBid = Math.max(...allBids);
+    const highestBid = highestBidder[0].amount;
 
     let isLoggedIn = false;
     
@@ -52,10 +57,20 @@ let listItem = (item) => {
     }
     
     let canBid = `
-        <div class="flex">
+        <div class="mt-4 flex justify-between">
+            <div>
+                <h2 class="font-bold text-gray">Current bid</h2>
+                <p class="text-xl font-bold">${highestBid} Credit${highestBid > 1 ? "s" : ""}</p>
+            </div>
+            <div class="flex flex-col justify-end">
+                <p class="font-bold text-gray">${item.bids.length} bids</p>
+            </div>
+        </div>
+        <div class="flex mt-4 ${highestBidder[0].bidder == username ? "hidden" : highestBidder[0].bidder}">
             <input class="p-2 border-2 rounded-l" type="text" value="${highestBid + 10}" id="bidInput">
             <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold" id="bidButton">Place bid</button>
         </div>
+        <div class="mt-2"><span class="font-bold text-gray">${highestBidder[0].bidder == username ? "You" : highestBidder[0].bidder}</span> ${highestBidder[0].amount == 0 ? "" : "Currently have the highest bid"}</div>
     `
 
     const cannotBid = `
@@ -72,11 +87,22 @@ let listItem = (item) => {
             <button class="bg-main rounded p-1 mt-2 font-bold text-secondary" id="deleteButton">Delete</button>
         `
         canBid = `
+        <div class="mt-4 flex justify-between">
+        <div>
+            <h2 class="font-bold text-gray">Current bid</h2>
+            <p class="text-xl font-bold">${highestBid} Credit${highestBid > 1 ? "s" : ""}</p>
+        </div>
+        <div class="flex flex-col justify-end">
+            <p class="font-bold text-gray">${item.bids.length} bids</p>
+        </div>
+    </div>
             <div class="font-bold text-gray">Would be a bit strange to buy your own stuff, right?</div>
         `;
     } else {
         deleteButton = ""
     }
+
+ 
 
     output.innerHTML = `
     <div class="grid grid-cols-2 gap-10">
@@ -86,15 +112,6 @@ let listItem = (item) => {
         </div>
         <div class="">
             <h1 class="text-2xl font-bold">${item.title}</h1>
-            <div class="mt-4 flex justify-between">
-                <div>
-                    <h2 class="font-bold text-gray">Current bid</h2>
-                    <p class="text-xl font-bold">${highestBid} Credit${highestBid > 1 ? "s" : ""}</p>
-                </div>
-                <div class="flex flex-col justify-end">
-                    <p class="font-bold text-gray">${item.bids.length} bids</p>
-                </div>
-            </div>
             <div class="mt-4">${isLoggedIn ? canBid : cannotBid}</div>
             <div class="mt-4">
                 <h2 class="font-bold text-gray">Listed</h2>
@@ -149,9 +166,20 @@ fetch (itemUrl, {
  .then((response) => response.json())
  .then((data) => {
     console.log(data);
-    listItem(data)
- })
- .catch((error) => {
+    listItem(data);
+})
+.catch((error) => {
     console.error(error);
-});
+    if (!error.message.includes("bidButton")) {
+        errorMsg.innerHTML = `
+        <div class="font-extrabold font-montserrat flex flex-col items-center text-center gap-4">
+            <h2 class="text-4xl">1+1=11</h2>
+            <h3 class="text-xl">Sorry, an error has occured</h3>
+            <p class="text-gray w-1/2">Most likely you have been fiddeling with something you should not fiddle with. Or maybe there is an actual error? Dont ask me, i am just an error message.</p>
+        </div>`
+    }
+})
+.finally(() => {
+    loadingSpinner.classList.add("hidden")
+ });
 

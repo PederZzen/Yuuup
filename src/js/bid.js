@@ -1,5 +1,6 @@
 import { listingsUrl } from "./api.js";
 import { token } from "./api.js";
+import { credits } from "./api.js";
 
 const queryString = document.location.search;
 const searchParams = new URLSearchParams(queryString);
@@ -10,7 +11,7 @@ const bidUrl = `${listingsUrl}${id}/bids`;
 export let placeBid = (e) => {
     e.preventDefault();
     
-    let bidInput = document.getElementById("bidInput");
+    const bidInput = document.getElementById("bidInput");
     const bid = bidInput.value.trim()
     const amount = parseInt(bid);
     
@@ -25,7 +26,6 @@ export let placeBid = (e) => {
         bidOnItem(bidUrl, data)
     }
 }
-export let bidError = `&nbsp;`;
 
 async function bidOnItem (url, data) {
     try {

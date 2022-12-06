@@ -1,5 +1,5 @@
 import { token } from "./api.js"
-import { credits } from "./api.js"
+import { username } from "./api.js"
 
 let navElement;
 let sellLink = "./login.html";
@@ -7,7 +7,7 @@ let profileLink = "./login.html";
 
 if (token) {
     navElement = `            
-    <p class="text-accent">${credits} Credits</p>
+    <a href="./profile.html" class="text-gray">${username}</a>
     <a href="/" class="bg-secondary font-bold text-main px-2 py-1 rounded" id="logOutBtn">Logout</a>
     `
     sellLink = "./sell.html";
