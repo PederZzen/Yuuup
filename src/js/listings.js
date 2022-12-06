@@ -5,6 +5,8 @@ const loadingSpinner = document.querySelector("#loadingSpinner");
 const errorMsg = document.querySelector("#errorMsg");
 const auctionHero = document.querySelector("#auctionHero");
 
+let collection = [];
+
 let displayListings = (items) => {
     let newItem = "";
 
@@ -60,6 +62,7 @@ fetch (allEntriesUrl, {
 })
  .then((response) => response.json())
  .then((data) => {
+    collection = data;
     displayListings(data)
  })
  .catch((error) => {
@@ -77,3 +80,19 @@ fetch (allEntriesUrl, {
  .finally(() => {
     loadingSpinner.classList.add("hidden")
  });
+
+ const searchInput = document.querySelector("#auctionSearch");
+ const searchButton = document.querySelector("#auctionSearchButton");
+
+ let filterItems = () => {
+    const query = searchInput.value.trim()
+    const filteredItems = collection.filter((item) => {
+        const filterSeller = item.seller.name.toUpperCase().indexOf(query.toUpperCase().trim()) > -1
+        const filterTitle = item.title.toUpperCase().indexOf(query.toUpperCase().trim()) > -1
+
+        return filterSeller || filterTitle
+    })
+    displayListings(filteredItems)
+ };
+
+ searchInput.addEventListener("keyup", filterItems)

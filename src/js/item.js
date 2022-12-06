@@ -41,12 +41,6 @@ let listItem = (item) => {
 
     const highestBid = highestBidder[0].amount;
 
-    let isLoggedIn = false;
-    
-    if (token) {
-        isLoggedIn = true;
-    }
-
     let media;
     if (item.media.length > 1) {
         media = item.media[0]
@@ -55,17 +49,31 @@ let listItem = (item) => {
     } else {
         media = item.media;
     }
+
+    let isLoggedIn = false;
+    let isOwner = false;
+
+    if (item.seller.name === username) {
+        isOwner = true;
+    }
     
-    let canBid = `
-        <div class="mt-4 flex justify-between">
-            <div>
-                <h2 class="font-bold text-gray">Current bid</h2>
-                <p class="text-xl font-bold">${highestBid} Credit${highestBid > 1 ? "s" : ""}</p>
-            </div>
-            <div class="flex flex-col justify-end">
-                <p class="font-bold text-gray">${item.bids.length} bids</p>
-            </div>
+    if (token) {
+        isLoggedIn = true;
+    }
+
+    const bids = `        
+    <div class="mt-4 flex justify-between">
+        <div>
+            <h2 class="font-bold text-gray">Current bid</h2>
+            <p class="text-xl font-bold">${highestBid} Credit${highestBid > 1 ? "s" : ""}</p>
         </div>
+        <div class="flex flex-col justify-end">
+            <p class="font-bold text-gray">${item.bids.length} bids</p>
+        </div>
+    </div>`
+
+    let canBid = `
+        ${bids}
         <div class="flex mt-4 ${highestBidder[0].bidder == username ? "hidden" : highestBidder[0].bidder}">
             <input class="p-2 border-2 rounded-l" type="text" value="${highestBid + 10}" id="bidInput">
             <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold" id="bidButton">Place bid</button>
@@ -79,7 +87,6 @@ let listItem = (item) => {
         </div>
     `
     let deleteButton;
-    let isOwner = false;
     
     if (item.seller.name === username) {
         isOwner = true;
@@ -87,22 +94,12 @@ let listItem = (item) => {
             <button class="bg-main rounded p-1 mt-2 font-bold text-secondary" id="deleteButton">Delete</button>
         `
         canBid = `
-        <div class="mt-4 flex justify-between">
-        <div>
-            <h2 class="font-bold text-gray">Current bid</h2>
-            <p class="text-xl font-bold">${highestBid} Credit${highestBid > 1 ? "s" : ""}</p>
-        </div>
-        <div class="flex flex-col justify-end">
-            <p class="font-bold text-gray">${item.bids.length} bids</p>
-        </div>
-    </div>
-            <div class="font-bold text-gray">Would be a bit strange to buy your own stuff, right?</div>
+            ${bids}
+            <div class="font-bold mt-4 text-gray">Would be a bit strange to bid on your own stuff, right?</div>
         `;
     } else {
         deleteButton = ""
     }
-
- 
 
     output.innerHTML = `
     <div class="grid grid-cols-2 gap-10">
@@ -111,24 +108,26 @@ let listItem = (item) => {
             ${deleteButton}
         </div>
         <div class="">
-            <h1 class="text-2xl font-bold">${item.title}</h1>
-            <div class="mt-4">${isLoggedIn ? canBid : cannotBid}</div>
-            <div class="mt-4">
-                <h2 class="font-bold text-gray">Listed</h2>
-                <p>${created}</p>
-            </div>
-            <div class="mt-4">
-                <h2 class="font-bold text-gray">Ends at</h2>
-                <p>${deadline}</p>
-            </div>
-            <div class="mt-4">
-                <h2 class="font-bold text-gray">Seller</h2>
-                <div class="flex grid-2 items-center mt-2">
-                    <div>
-                        <img style="height: 2rem; width: 2rem; object-fit: cover; border-radius: 100%" src="${item.seller.avatar ? item.seller.avatar : profileImage}" alt="${item.seller.name}">
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <p class="font-bold">${item.seller.name}</p>
+            <div>
+                <h1 class="text-2xl font-bold">${item.title}</h1>
+                <div class="mt-4">${isLoggedIn ? canBid : cannotBid}</div>
+                <div class="mt-4">
+                    <h2 class="font-bold text-gray">Listed</h2>
+                    <p>${created}</p>
+                </div>
+                <div class="mt-4">
+                    <h2 class="font-bold text-gray">Ends at</h2>
+                    <p>${deadline}</p>
+                </div>
+                <div class="mt-4">
+                    <h2 class="font-bold text-gray">Seller</h2>
+                    <div class="flex grid-2 items-center mt-2">
+                        <div>
+                            <img style="height: 2rem; width: 2rem; object-fit: cover; border-radius: 100%" src="${item.seller.avatar ? item.seller.avatar : profileImage}" alt="${item.seller.name}">
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <p class="font-bold">${item.seller.name}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -182,4 +181,6 @@ fetch (itemUrl, {
 .finally(() => {
     loadingSpinner.classList.add("hidden")
  });
+
+
 
