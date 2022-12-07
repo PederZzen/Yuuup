@@ -1,6 +1,5 @@
 import { profileUrl } from "./api.js";
 import { token } from "./api.js";
-import { username } from "./api.js";
 
 const updateMediaUrl = `${profileUrl}/media`;
 
@@ -26,9 +25,7 @@ async function update (url, data) {
             },
             body: JSON.stringify(data)
         }
-        const response = await fetch (url, options)
-        const json = response.json()
-        console.log(response.headers);
+        await fetch (url, options)
         location.reload()
     } catch (error) {
         console.log(error);
