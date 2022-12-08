@@ -12,12 +12,15 @@ const id = searchParams.get("id");
 const profileImage = "../../img/ProfileImage.png";
 const itemUrl = listingsUrl + id + listingsFlag;
 const errorMsg = document.querySelector("#errorMsg");
+const loadingSpinner = document.querySelector("#loadingSpinner");
 
 let listItem = (item) => {
     document.title = `Yup! | ${item.title}`
     
-    let created = new Date(item.created).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
-    let deadline = new Date(item.endsAt).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+    const created = new Date(item.created).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+    const ends = new Date(item.endsAt)
+    const deadline = ends.toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+    const now = new Date()
 
     let allBids = [];
     let highestBidder;
@@ -64,7 +67,7 @@ let listItem = (item) => {
     const bids = `        
     <div class="mt-4 flex justify-between">
         <div>
-            <h2 class="font-bold text-gray">Current bid</h2>
+            <h2 class="font-bold text-gray">${ends < now ? "Sold for" : "Current bid"}</h2>
             <p class="text-xl font-bold">${highestBid} Credit${highestBid > 1 ? "s" : ""}</p>
         </div>
         <div class="flex flex-col justify-end">
@@ -116,7 +119,7 @@ let listItem = (item) => {
                     <p>${created}</p>
                 </div>
                 <div class="mt-4">
-                    <h2 class="font-bold text-gray">Ends at</h2>
+                    <h2 class="font-bold text-gray">${ends < now ? "Ended" : "Ends at"}</h2>
                     <p>${deadline}</p>
                 </div>
                 <div class="mt-4">
@@ -129,6 +132,10 @@ let listItem = (item) => {
                             <p class="font-bold">${item.seller.name}</p>
                         </div>
                     </div>
+                </div>
+                <div class="mt-4 ${ends < now ? "block" : "hidden"}">
+                    <h2 class="font-bold text-gray">Sold to</h2>
+                    <p>${highestBidder[0].bidder}</p>
                 </div>
             </div>
         </div>

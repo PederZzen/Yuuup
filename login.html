@@ -10,8 +10,8 @@
     <title>Yup! | Login</title>
 </head>
 <body class="bg-main font-montserrat">
-    <section class="flex max-w-7xl mx-auto mt-20 justify-between  px-2 md:px-8">
-        <div>
+    <section class="grid grid-cols-2 max-w-7xl mx-auto mt-20 justify-between px-2 md:px-8">
+        <div class="hidden md:block">
             <svg width="503" height="526" viewBox="0 0 503 526" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.5" y="64.5" width="141" height="141" fill="#373737" stroke="#F5F5F5"/>
                 <rect x="213.5" y="0.5" width="68" height="68" fill="#373737" stroke="#F5F5F5"/>
@@ -24,7 +24,7 @@
                 <rect x="248.5" y="233.5" width="120" height="120" stroke="#FF5C00"/>
             </svg>
         </div>
-        <div class="text-secondary text-center p-10">
+        <div class="text-secondary flex flex-col justify-center items-center text-center p-10">
             <h1 class="my-10 text-2xl font-bold">Yup!</h1>
             <h2 class="font-bold">Log in to your account</h2>
             <span class="text-accent" id="API_ERROR">&nbsp;</span>
