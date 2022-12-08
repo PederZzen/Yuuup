@@ -14,7 +14,7 @@ let listProfile = (data) => {
     <section class="bg-main flex flex-col md:block">
         <div class="md:flex gap-4 font-montserrat py-4 max-w-7xl mx-auto px-2 md:px-8">
             <button class="editMediaOpen">
-                <img title="Edit profile image" src="${data.avatar == null ? profileImage : data.avatar }" style="width: 20rem; border-radius: 50%; height: 20rem; object-fit: cover;"alt="Profile picture of ${data.name}">
+                <img class="rounded-full h-40 w-40 object-cover" title="Edit profile image" src="${data.avatar == null ? profileImage : data.avatar }" alt="Profile picture of ${data.name}">
             </button>
             <div class="flex flex-col justify-center items-center my-10 gap-2">
                 <h1 class="text-secondary text-2xl font-bold">${data.name}</h1>
@@ -94,9 +94,7 @@ let listProfileListings = (data) => {
         listItem += `
         <div class="font-montserrat">
             <a href="./item.html?id=${listing.id}">
-                <div class="">
-                    <img class="" src="${media}" alt="${listing.title}">
-                </div>
+                <img class="h-64 w-full object-cover" src="${media}" alt="${listing.title}">
                 <div>${auctionStatus}</div>
             </a>
         </div>

@@ -13,9 +13,11 @@ const profileImage = "../../img/ProfileImage.png";
 const itemUrl = listingsUrl + id + listingsFlag;
 const errorMsg = document.querySelector("#errorMsg");
 const loadingSpinner = document.querySelector("#loadingSpinner");
+const breadcrumbs = document.querySelector("#breadcrumbs");
 
 let listItem = (item) => {
     document.title = `Yup! | ${item.title}`
+    breadcrumbs.innerHTML = item.title
     
     const created = new Date(item.created).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
     const ends = new Date(item.endsAt)
@@ -105,22 +107,22 @@ let listItem = (item) => {
     }
 
     const outputContent = `
-    <div class="">
-        <img class="" src="${media}" alt="">
+    <div>
+        <img class="w-full object-cover rounded" src="${media}" alt="">
         ${deleteButton}
     </div>
     <div>
         <h1 class="text-2xl font-bold">${item.title}</h1>
-        <div class="mt-4">${isLoggedIn ? canBid : cannotBid}</div>
-        <div class="mt-4">
+        <div class="mt-8">${isLoggedIn ? canBid : cannotBid}</div>
+        <div class="mt-8">
             <h2 class="font-bold text-gray">Listed</h2>
             <p>${created}</p>
         </div>
-        <div class="mt-4">
+        <div class="mt-8">
             <h2 class="font-bold text-gray">${ends < now ? "Ended" : "Ends at"}</h2>
             <p>${deadline}</p>
         </div>
-        <div class="mt-4">
+        <div class="mt-8">
             <h2 class="font-bold text-gray">Seller</h2>
             <div class="flex grid-2 items-center mt-2">
                 <div>
@@ -131,7 +133,7 @@ let listItem = (item) => {
                 </div>
             </div>
         </div>
-        <div class="mt-4 ${ends < now ? "block" : "hidden"}">
+        <div class="mt-8 ${ends < now ? "block" : "hidden"}">
             <h2 class="font-bold text-gray">Sold to</h2>
             <p>${highestBidder[0].bidder}</p>
         </div>

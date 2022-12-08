@@ -10,11 +10,11 @@
     <script src="./src/js/listings.js" type="module" defer></script>
     <title>Yup! | Auction</title>
 </head>
-<body class="bg-secondary">
+<body class="bg-secondary min-h-screen relative min-w-40">
     <header>
         <nav id="navbar"></nav>
     </header>
-    <main class="text-main">
+    <main class="text-main pb-40">
         <section class="mt-20 max-w-7xl mx-auto px-2 md:px-8">
             <div class="text-center mt-20" id="auctionHero">
                 <h1 class="text-xl font-extrabold">Auction</h1>
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </section>
-        <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-7xl mx-auto px-2 md:px-8" id="listings"></section>
+        <section class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-20 max-w-7xl mx-auto px-2 md:px-8" id="listings"></section>
         <div id="errorMsg"></div>
         <div id="loadingSpinner" class="text-center flex flex-col items-center">
             <img src="./img/Eclipse-1s-200px.gif" alt="Loading icon">

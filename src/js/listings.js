@@ -38,9 +38,7 @@ let displayListings = (items) => {
         newItem += `
         <div class="font-montserrat">
             <a href="./item.html?id=${item.id}">
-                <div class="">
-                    <img class="" src="${media}" alt="${item.title}">
-                </div>
+                <img class="h-72 object-cover w-full" src="${media}" alt="${item.title}">
                 <h2 class="font-bold py-1">${item.title}</h2>
                 <p class="text-gray">Current Bid<p/>
                 <h2 class="font-bold">${highestBid}</h2>

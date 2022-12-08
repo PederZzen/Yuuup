@@ -59,7 +59,6 @@ publishBtn.addEventListener("click", (e) => {
         descriptionInput.value = "";
         endsAtInput.value = "";
     } else {
-        console.log("Errorisme!");
         // const errorMessage = document.getElementById("errorMessage");
         // errorMessage.innerHTML = "You need to enter a title and set a deadline for your listing";
     }

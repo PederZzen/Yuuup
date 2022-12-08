@@ -10,11 +10,18 @@
     <script src="./src/js/item.js" type="module"  defer></script>
     <title>Yup! | Auction</title>
 </head>
-<body class="bg-secondary">
+<body class="bg-secondary relative min-h-screen">
     <header>
         <nav id="navbar"></nav>
     </header>
-    <main class="text-main">
+    <main class="text-main pb-40">
+        <div class="mt-10 max-w-7xl mx-auto px-2 md:px-8 font-montserrat">
+            <ul class="flex">
+                <a href="./index.html"><li>Home |&nbsp;</li></a>
+                <a href="./auction.html"><li>Auction |&nbsp;</li></a>
+                <li class="font-bold" id="breadcrumbs"></li>
+            </ul>
+        </div>
         <section class="mt-20 max-w-7xl mx-auto px-2 md:px-8 font-montserrat" id="singleItem"></section>
         <div id="errorMsg"></div>
         <div id="loadingSpinner" class="text-center flex flex-col items-center">
