@@ -5,19 +5,18 @@ import { updateMedia } from "./updateMedia.js";
 const profileListings = profileUrl + "/listings?sort=created&sortOrder=desc&_seller=true&_bids=true";
 const hero = document.querySelector("#hero");
 const listingsOutput = document.querySelector("#listings");
-const bidsOutput = document.querySelector("#bids");
 const profileImage = "../../img/ProfileImage.png"
 
 let listProfile = (data) => {
     document.title = `Yup! | ${data.name}`
 
     let heroOutput = `
-    <section class="bg-main">
-        <div class="flex gap-4 font-montserrat py-4 max-w-7xl mx-auto px-2 md:px-8">
+    <section class="bg-main flex flex-col md:block">
+        <div class="md:flex gap-4 font-montserrat py-4 max-w-7xl mx-auto px-2 md:px-8">
             <button class="editMediaOpen">
-                <img title="Edit profile image" src="${data.avatar == null ? profileImage : data.avatar }" style="width: 20rem; border-radius: 50%; height: 20rem; object-fit: cover;"alt="">
+                <img title="Edit profile image" src="${data.avatar == null ? profileImage : data.avatar }" style="width: 20rem; border-radius: 50%; height: 20rem; object-fit: cover;"alt="Profile picture of ${data.name}">
             </button>
-            <div class="flex flex-col justify-center gap-2">
+            <div class="flex flex-col justify-center items-center my-10 gap-2">
                 <h1 class="text-secondary text-2xl font-bold">${data.name}</h1>
                 <h2 class="text-gray">${data.email}</h2>
                 <p class="text-accent font-bold">${data.credits} Credits</p>
@@ -28,7 +27,7 @@ let listProfile = (data) => {
             <button class="bg-accent px-2 font-bold text-main rounded-r" id="submitNewMedia">Update</button>
         </div>
     </section>
-        `
+    `
     hero.innerHTML = heroOutput;
 
     let editMedia = document.querySelector(".editMediaOpen")

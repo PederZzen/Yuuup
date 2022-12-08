@@ -104,45 +104,67 @@ let listItem = (item) => {
         deleteButton = ""
     }
 
-    output.innerHTML = `
-    <div class="grid grid-cols-2 gap-6">
-        <div class="">
-            <img class="" src="${media}" alt="">
-            ${deleteButton}
+    const outputContent = `
+    <div class="">
+        <img class="" src="${media}" alt="">
+        ${deleteButton}
+    </div>
+    <div>
+        <h1 class="text-2xl font-bold">${item.title}</h1>
+        <div class="mt-4">${isLoggedIn ? canBid : cannotBid}</div>
+        <div class="mt-4">
+            <h2 class="font-bold text-gray">Listed</h2>
+            <p>${created}</p>
         </div>
-        <div>
-            <h1 class="text-2xl font-bold">${item.title}</h1>
-            <div class="mt-4">${isLoggedIn ? canBid : cannotBid}</div>
-            <div class="mt-4">
-                <h2 class="font-bold text-gray">Listed</h2>
-                <p>${created}</p>
-            </div>
-            <div class="mt-4">
-                <h2 class="font-bold text-gray">${ends < now ? "Ended" : "Ends at"}</h2>
-                <p>${deadline}</p>
-            </div>
-            <div class="mt-4">
-                <h2 class="font-bold text-gray">Seller</h2>
-                <div class="flex grid-2 items-center mt-2">
-                    <div>
-                        <img style="height: 2rem; width: 2rem; object-fit: cover; border-radius: 100%" src="${item.seller.avatar ? item.seller.avatar : profileImage}" alt="${item.seller.name}">
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <p class="font-bold">${item.seller.name}</p>
-                    </div>
+        <div class="mt-4">
+            <h2 class="font-bold text-gray">${ends < now ? "Ended" : "Ends at"}</h2>
+            <p>${deadline}</p>
+        </div>
+        <div class="mt-4">
+            <h2 class="font-bold text-gray">Seller</h2>
+            <div class="flex grid-2 items-center mt-2">
+                <div>
+                    <img style="height: 2rem; width: 2rem; object-fit: cover; border-radius: 100%" src="${item.seller.avatar ? item.seller.avatar : profileImage}" alt="${item.seller.name}">
+                </div>
+                <div class="flex flex-col justify-center">
+                    <p class="font-bold">${item.seller.name}</p>
                 </div>
             </div>
-            <div class="mt-4 ${ends < now ? "block" : "hidden"}">
-                <h2 class="font-bold text-gray">Sold to</h2>
-                <p>${highestBidder[0].bidder}</p>
-            </div>
         </div>
-    </div>
+        <div class="mt-4 ${ends < now ? "block" : "hidden"}">
+            <h2 class="font-bold text-gray">Sold to</h2>
+            <p>${highestBidder[0].bidder}</p>
+        </div>
+    </div>`
+
+    const outputDesktop = `
+    <div class="grid grid-cols-2 gap-6">${outputContent}</div>
     <div class="mt-20">
         <h1 class="text-2xl font-bold">Description</h1>
         <div class="mt-4">${item.description}</div>
     </div>
     `
+
+    const outputMobile = `
+    <div class="">${outputContent}</div>
+    <div class="mt-20">
+        <h1 class="text-2xl font-bold">Description</h1>
+        <div class="mt-4">${item.description}</div>
+    </div>
+    `
+
+    
+    let checkForScreenWidth = () => {
+        const w = window.innerWidth;
+        if (w < 768) {
+            output.innerHTML = outputMobile;
+        } else {
+            output.innerHTML = outputDesktop;
+        }
+    }
+    checkForScreenWidth()
+    window.addEventListener("resize", checkForScreenWidth)
+
     
     const deleteBtn = document.querySelector("#deleteButton");
     
