@@ -77,13 +77,15 @@ let listItem = (item) => {
         </div>
     </div>`
 
+    let itemHasBids = `<div class="mt-2"><span class="font-bold text-gray">${highestBidder[0].bidder == username ? "You" : highestBidder[0].bidder}</span> ${highestBidder[0].amount == 0 ? "" : "Currently have the highest bid"}</div>`
+
     let canBid = `
         ${bids}
         <div class="flex mt-4 ${highestBidder[0].bidder == username ? "hidden" : highestBidder[0].bidder}">
             <input class="p-2 border-2 rounded-l" type="text" value="${highestBid + 10}" id="bidInput">
             <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold" id="bidButton">Place bid</button>
         </div>
-        <div class="mt-2"><span class="font-bold text-gray">${highestBidder[0].bidder == username ? "You" : highestBidder[0].bidder}</span> ${highestBidder[0].amount == 0 ? "" : "Currently have the highest bid"}</div>
+        ${itemHasBids}
     `
 
     const cannotBid = `
@@ -101,73 +103,52 @@ let listItem = (item) => {
         canBid = `
             ${bids}
             <div class="font-bold mt-4 text-gray">Would be a bit strange to bid on your own stuff, right?</div>
+            ${itemHasBids}
         `;
     } else {
         deleteButton = ""
     }
 
-    const outputContent = `
-    <div>
-        <img class="w-full object-cover rounded" src="${media}" alt="">
-        ${deleteButton}
-    </div>
-    <div>
-        <h1 class="text-2xl font-bold">${item.title}</h1>
-        <div class="mt-8">${isLoggedIn ? canBid : cannotBid}</div>
-        <div class="mt-8">
-            <h2 class="font-bold text-gray">Listed</h2>
-            <p>${created}</p>
+    output.innerHTML = `
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">    
+        <div>
+            <img class="w-full object-cover rounded" src="${media}" alt="A picture of ${item.title}">
+            ${deleteButton}
         </div>
-        <div class="mt-8">
-            <h2 class="font-bold text-gray">${ends < now ? "Ended" : "Ends at"}</h2>
-            <p>${deadline}</p>
-        </div>
-        <div class="mt-8">
-            <h2 class="font-bold text-gray">Seller</h2>
-            <div class="flex grid-2 items-center mt-2">
-                <div>
-                    <img style="height: 2rem; width: 2rem; object-fit: cover; border-radius: 100%" src="${item.seller.avatar ? item.seller.avatar : profileImage}" alt="${item.seller.name}">
-                </div>
-                <div class="flex flex-col justify-center">
-                    <p class="font-bold">${item.seller.name}</p>
+        <div>
+            <h1 class="text-2xl font-bold">${item.title}</h1>
+            <div class="mt-8">${isLoggedIn ? canBid : cannotBid}</div>
+            <div class="mt-8">
+                <h2 class="font-bold text-gray">Listed</h2>
+                <p>${created}</p>
+            </div>
+            <div class="mt-8">
+                <h2 class="font-bold text-gray">${ends < now ? "Ended" : "Ends at"}</h2>
+                <p>${deadline}</p>
+            </div>
+            <div class="mt-8">
+                <h2 class="font-bold text-gray">Seller</h2>
+                <div class="flex grid-2 items-center mt-2">
+                    <div>
+                        <img class="w-10 h-10 object-cover rounded-full" src="${item.seller.avatar ? item.seller.avatar : profileImage}" alt="${item.seller.name}">
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <p class="font-bold">${item.seller.name}</p>
+                    </div>
                 </div>
             </div>
+            <div class="mt-8 ${ends < now ? "block" : "hidden"}">
+                <h2 class="font-bold text-gray">Sold to</h2>
+                <p>${highestBidder[0].bidder}</p>
+            </div>
         </div>
-        <div class="mt-8 ${ends < now ? "block" : "hidden"}">
-            <h2 class="font-bold text-gray">Sold to</h2>
-            <p>${highestBidder[0].bidder}</p>
-        </div>
-    </div>`
-
-    const outputDesktop = `
-    <div class="grid grid-cols-2 gap-6">${outputContent}</div>
+    </div>
     <div class="mt-20">
         <h1 class="text-2xl font-bold">Description</h1>
         <div class="mt-4">${item.description}</div>
     </div>
     `
 
-    const outputMobile = `
-    <div class="">${outputContent}</div>
-    <div class="mt-20">
-        <h1 class="text-2xl font-bold">Description</h1>
-        <div class="mt-4">${item.description}</div>
-    </div>
-    `
-
-    
-    let checkForScreenWidth = () => {
-        const w = window.innerWidth;
-        if (w < 768) {
-            output.innerHTML = outputMobile;
-        } else {
-            output.innerHTML = outputDesktop;
-        }
-    }
-    checkForScreenWidth()
-    window.addEventListener("resize", checkForScreenWidth)
-
-    
     const deleteBtn = document.querySelector("#deleteButton");
     
     if (isOwner) {

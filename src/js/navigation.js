@@ -15,7 +15,7 @@ if (token) {
 } else {
     navElement = `            
     <a href="./login.html" class="hover:text-gray">Login</a>
-    <a href="./register.html" class="bg-secondary font-bold text-main px-2 py-1 rounded">Register</a>
+    <a href="./register.html" class="bg-accent font-bold text-secondary px-2 py-1 rounded">Register</a>
     `
 }
 
