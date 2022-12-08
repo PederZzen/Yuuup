@@ -20,7 +20,7 @@ if (token) {
 }
 
 export let navbar = document.querySelector("#navbar").innerHTML = `
-<section class="bg-main">
+<section class="bg-main py-2">
     <div class="flex justify-between max-w-7xl mx-auto md:px-8 p-2 text-secondary font-montserrat">
         <div class="flex gap-3 items-center">
             <div>
