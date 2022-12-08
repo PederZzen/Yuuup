@@ -4,8 +4,8 @@
   "description": "[Assignment](https://github.com/PederZzen/Semester-project-2/files/10056804/semester.project.2.pdf)",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./src/css/style.css -o ./style/style.css",
-    "watch": "tailwindcss -i ./src/css/style.css -o ./style/style.css --watch"
+    "build": "tailwindcss -i ./src/css/style.css -o ./dist/style.css",
+    "watch": "tailwindcss -i ./src/css/style.css -o ./dist/style.css --watch"
   },
   "repository": {
     "type": "git",

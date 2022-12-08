@@ -38,7 +38,7 @@ async function login(url, userData) {
         localStorage.setItem("username", json.name)
         localStorage.setItem("credits", json.credits)
         if (response.ok == true) { 
-            window.location.href = history.back(); 
+            window.location.href = "/"; 
         } else { 
             API_ERROR.innerHTML = json.status;
         }

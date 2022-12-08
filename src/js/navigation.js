@@ -46,7 +46,7 @@ export let navbar = document.querySelector("#navbar").innerHTML = `
 </section>
 <section class="bg-main hidden md:hidden" id="mobileMenu">
     <div class="p-2  text-secondary font-montserrat">
-        <div class="flex font-bold text-xl flex-col gap-10 mt-20">
+        <div class="flex font-bold text-xl flex-col gap-6 mt-20">
             <a href="./auction.html" class="hover:text-gray">Auction</a>
             <a href="${sellLink}" class="hover:text-gray">Sell</a>
             <a href="${profileLink}" class="hover:text-gray">Profile</a>
