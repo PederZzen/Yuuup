@@ -16,13 +16,13 @@ const loadingSpinner = document.querySelector("#loadingSpinner");
 const breadcrumbs = document.querySelector("#breadcrumbs");
 
 let listItem = (item) => {
-    document.title = `Yup! | ${item.title}`
-    breadcrumbs.innerHTML = item.title
+    document.title = `Yup! | ${item.title}`;
+    breadcrumbs.innerHTML = item.title;
     
     const created = new Date(item.created).toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
-    const ends = new Date(item.endsAt)
+    const ends = new Date(item.endsAt);
     const deadline = ends.toLocaleString("default", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
-    const now = new Date()
+    const now = new Date();
 
     let allBids = [];
     let highestBidder;
