@@ -8,7 +8,7 @@ const listingsOutput = document.querySelector("#listings");
 const profileImage = "../../img/ProfileImage.png"
 
 let listProfile = (data) => {
-    document.title = `Yup! | ${data.name}`
+    document.title = `Yuuup! | ${data.name}`
 
     let heroOutput = `
     <section class="bg-main flex flex-col md:block">

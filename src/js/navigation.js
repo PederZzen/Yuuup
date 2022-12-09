@@ -24,7 +24,7 @@ export let navbar = document.querySelector("#navbar").innerHTML = `
     <div class="flex justify-between max-w-7xl mx-auto md:px-8 p-2 text-secondary font-montserrat">
         <div class="flex gap-3 items-center">
             <div>
-                <a class="font-bold text-xl" href="./index.html">Yup!</a>
+                <a class="font-bold text-xl" href="./index.html">Yuuup!</a>
             </div>
             <div class="hidden md:flex gap-2">
                 <a href="./auction.html" class="hover:text-gray">Auction</a>
