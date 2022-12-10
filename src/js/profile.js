@@ -12,18 +12,18 @@ let listProfile = (data) => {
 
     let heroOutput = `
     <section class="bg-main flex flex-col md:block">
-        <div class="md:flex gap-4 font-montserrat py-4 max-w-7xl mx-auto px-2 md:px-8">
+        <div class="md:flex gap-4 font-montserrat py-4 max-w-7xl text-center mx-auto px-2 md:px-8">
             <button class="editMediaOpen">
                 <img class="rounded-full h-40 w-40 object-cover" title="Edit profile image" src="${data.avatar == null ? profileImage : data.avatar }" alt="Profile picture of ${data.name}">
             </button>
-            <div class="flex flex-col justify-center items-center my-10 gap-2">
+            <div class="flex flex-col items-center md:items-start my-10 gap-2">
                 <h1 class="text-secondary text-2xl font-bold">${data.name}</h1>
                 <h2 class="text-gray">${data.email}</h2>
                 <p class="text-accent font-bold">${data.credits} Credits</p>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-2 md:px-8 p-2 hidden" id="editMediaContainer" >
-            <input type="text" id="editMediaInput" placeholder="Add a link to your new and amazing profile picture here!" class=" w-1/2 rounded-l p-2">
+            <input type="text" id="editMediaInput" placeholder="Add link to new image" class=" w-1/2 rounded-l p-2">
             <button class="bg-accent px-2 font-bold text-main rounded-r" id="submitNewMedia">Update</button>
         </div>
     </section>
@@ -92,16 +92,20 @@ let listProfileListings = (data) => {
         }    
 
         listItem += `
-        <div class="font-montserrat">
+        <div class="font-montserrat bg-white rounded">
             <a href="./item.html?id=${listing.id}">
-                <img class="h-64 w-full object-cover" src="${media}" alt="${listing.title}">
-                <div>${auctionStatus}</div>
+                <img class="h-64 w-full object-cover rounded-t" src="${media}" alt="${listing.title}">
+                <div class="p-2">${auctionStatus}</div>
             </a>
         </div>
         `
     })
 
-    listingsOutput.innerHTML = listItem;
+    if (data.length == 0) {
+        listingsOutput.innerHTML = `<a href="./sell.html" class="font-bold text-gray">No listings yet.</a>`
+    } else {
+        listingsOutput.innerHTML = listItem;
+    }
 }
 
 let fetchProfileData = (url, listData) => {
@@ -114,8 +118,8 @@ let fetchProfileData = (url, listData) => {
     })
      .then((response) => response.json())
      .then((data) => {
-        console.log(data);
         listData(data)
+        console.log(data);
      })
      .catch((error) => {
         console.log(error);

@@ -56,7 +56,7 @@ let listItem = (item) => {
     if (highestBidAmount != 0) {
         allBids.forEach(bid => {
             bidHistory += `
-                <li><span class="font-bold">${bid.bidder}</span> placed a bid on ${bid.amount}</li>
+                <li><span class="font-bold">${bid.bidder}</span> placed a bid on ${bid.amount} credit</li>
             `
         })
     } else if (isOwner) {

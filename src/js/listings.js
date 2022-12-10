@@ -40,7 +40,7 @@ let displayListings = (items) => {
             <a href="./item.html?id=${item.id}">
                 <img class="h-72 object-cover w-full" src="${media}" alt="${item.title}">
                 <div class="flex flex-col p-2">
-                    <h2 class="font-bold py-1 text-xl mb-2 break-words">${item.title}</h2>
+                    <h2 class="font-bold py-1 mb-2 break-words">${item.title}</h2>
                     <p class="text-gray">Current Bid<p/>
                     <h2 class="font-bold">${highestBid}</h2>
                     <p class="text-gray">Auction ends at<p/>
@@ -82,7 +82,6 @@ fetch (allEntriesUrl, {
  });
 
  const searchInput = document.querySelector("#auctionSearch");
- const searchButton = document.querySelector("#auctionSearchButton");
 
  let filterItems = () => {
     const query = searchInput.value.trim()
