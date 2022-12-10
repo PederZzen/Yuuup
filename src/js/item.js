@@ -26,6 +26,11 @@ let listItem = (item) => {
 
     let allBids = [];
     let highestBidder;
+    let isOwner = false;
+
+    if (item.seller.name === username) {
+        isOwner = true;
+    }
 
     if(item.bids.length == 0) {
         allBids.push({
@@ -44,7 +49,22 @@ let listItem = (item) => {
         highestBidder = allBids.slice(-1)
     }
 
-    const highestBid = highestBidder[0].amount;
+    const highestBidAmount = highestBidder[0].amount;
+    const highestBidName = highestBidder[0].bidder;
+
+    let bidHistory = "";
+    if (highestBidAmount != 0) {
+        allBids.forEach(bid => {
+            bidHistory += `
+                <li><span class="font-bold">${bid.bidder}</span> placed a bid on ${bid.amount}</li>
+            `
+        })
+    } else if (isOwner) {
+        bidHistory = `<li><span class="font-bold">Sorry, no bids yet..</li>`
+    }else {
+        bidHistory = `<li><span class="font-bold">No bids! Be the first to place a bid on this item?</li>`;
+
+    }
 
     let media;
     if (item.media.length > 1) {
@@ -55,34 +75,29 @@ let listItem = (item) => {
         media = item.media;
     }
 
-    let isLoggedIn = false;
-    let isOwner = false;
-
-    if (item.seller.name === username) {
-        isOwner = true;
-    }
-    
-    if (token) {
-        isLoggedIn = true;
-    }
-
     const bids = `        
     <div class="mt-4 flex justify-between">
         <div>
             <h2 class="font-bold text-gray">${ends < now ? "Sold for" : "Current bid"}</h2>
-            <p class="text-xl font-bold">${highestBid} Credit${highestBid > 1 ? "s" : ""}</p>
+            <p class="text-xl font-bold">${highestBidAmount} Credit${highestBidAmount > 1 ? "s" : ""}</p>
         </div>
         <div class="flex flex-col justify-end">
             <p class="font-bold text-gray">${item.bids.length} bids</p>
         </div>
     </div>`
 
-    let itemHasBids = `<div class="mt-2"><span class="font-bold text-gray">${highestBidder[0].bidder == username ? "You" : highestBidder[0].bidder}</span> ${highestBidder[0].amount == 0 ? "" : "Currently have the highest bid"}</div>`
+    let itemHasBids = `
+    <div class="mt-8">
+        <h2 class="font-bold text-gray">Bid history</h2>
+        <ul class="flex flex-col-reverse mt-1 gap-1">
+            ${bidHistory}
+        </ul>
+    </div>`
 
     let canBid = `
         ${bids}
-        <div class="flex mt-4 ${highestBidder[0].bidder == username ? "hidden" : highestBidder[0].bidder}">
-            <input class="p-2 border-2 rounded-l" type="text" value="${highestBid + 10}" id="bidInput">
+        <div class="flex mt-4 ${highestBidName == username ? "hidden" : highestBidName}">
+            <input class="p-2 border-2 rounded-l" type="text" value="${highestBidAmount + 10}" id="bidInput">
             <button class="cursor-pointer rounded-r bg-main text-secondary p-2 font-bold" id="bidButton">Place bid</button>
         </div>
         ${itemHasBids}
@@ -95,14 +110,12 @@ let listItem = (item) => {
     `
     let deleteButton;
     
-    if (item.seller.name === username) {
-        isOwner = true;
+    if (isOwner) {
         deleteButton = `
             <button class="bg-main rounded p-1 mt-2 font-bold text-secondary" id="deleteButton">Delete</button>
         `
         canBid = `
             ${bids}
-            <div class="font-bold mt-4 text-gray">Would be a bit strange to bid on your own stuff, right?</div>
             ${itemHasBids}
         `;
     } else {
@@ -117,7 +130,7 @@ let listItem = (item) => {
         </div>
         <div>
             <h1 class="text-2xl font-bold">${item.title}</h1>
-            <div class="mt-8">${isLoggedIn ? canBid : cannotBid}</div>
+            <div class="mt-8">${token ? canBid : cannotBid}</div>
             <div class="mt-8">
                 <h2 class="font-bold text-gray">Listed</h2>
                 <p>${created}</p>
@@ -128,12 +141,12 @@ let listItem = (item) => {
             </div>
             <div class="mt-8">
                 <h2 class="font-bold text-gray">Seller</h2>
-                <div class="flex grid-2 items-center mt-2">
+                <div class="flex grid-2 items-center mt-2 gap-2">
                     <div>
                         <img class="w-10 h-10 object-cover rounded-full" src="${item.seller.avatar ? item.seller.avatar : profileImage}" alt="${item.seller.name}">
                     </div>
                     <div class="flex flex-col justify-center">
-                        <p class="font-bold">${item.seller.name}</p>
+                        <p class="">${item.seller.name}</p>
                     </div>
                 </div>
             </div>

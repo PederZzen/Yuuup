@@ -36,14 +36,16 @@ let displayListings = (items) => {
         }
         
         newItem += `
-        <div class="font-montserrat">
+        <div class="font-montserrat bg-white rounded">
             <a href="./item.html?id=${item.id}">
                 <img class="h-72 object-cover w-full" src="${media}" alt="${item.title}">
-                <h2 class="font-bold py-1">${item.title}</h2>
-                <p class="text-gray">Current Bid<p/>
-                <h2 class="font-bold">${highestBid}</h2>
-                <p class="text-gray">Auction ends at<p/>
-                <p class="font-bold">${deadline}</p>
+                <div class="flex flex-col p-2">
+                    <h2 class="font-bold py-1 text-xl mb-2 break-words">${item.title}</h2>
+                    <p class="text-gray">Current Bid<p/>
+                    <h2 class="font-bold">${highestBid}</h2>
+                    <p class="text-gray">Auction ends at<p/>
+                    <p class="font-bold">${deadline}</p>
+                </div>
             </a>
         </div>`
     });

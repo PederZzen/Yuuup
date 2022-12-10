@@ -13,14 +13,14 @@
 <body class="bg-main font-montserrat">
     <section class="grid md:grid-cols-2 max-w-7xl mx-auto mt-20 px-2 md:px-8">
         <img class="hidden md:block w-full" src="./img/squares_illustration.svg" alt="Illustraition">
-        <div class="text-secondary mx-auto text-center p-10">
+        <div class="text-secondary mx-auto text-center w-full max-w-sm">
             <h1 class="my-10 text-2xl font-bold">Yuuup!</h1>
             <h2 class="font-bold">Log in to your account</h2>
             <span class="text-accent" id="API_ERROR">&nbsp;</span>
-            <form class="flex flex-col mt-5 text-main" id="registerForm">
-                <input type="email" name="email" id="email" placeholder="Email" class="rounded p-2 w-96">
+            <form class="flex flex-col mt-5 text-main w-full" id="registerForm">
+                <input type="email" name="email" id="email" placeholder="Email" class="rounded p-2 w-full">
                 <span id="emailError" class="font-medim text-left text-accent">&nbsp;</span>
-                <input type="password" name="password" id="password" placeholder="Password" class="rounded p-2 w-96">
+                <input type="password" name="password" id="password" placeholder="Password" class="rounded p-2 w-full">
                 <span id="passwordError" class="font-medim text-left text-accent">&nbsp;</span>
                 <input type="submit" id="submit" value="Login" class="bg-accent p-2 rounded font-bold text-main my-4 w-40 mx-auto cursor-pointer">
             </form>

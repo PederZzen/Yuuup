@@ -59,7 +59,7 @@ publishBtn.addEventListener("click", (e) => {
         descriptionInput.value = "";
         endsAtInput.value = "";
     } else {
-        // const errorMessage = document.getElementById("errorMessage");
-        // errorMessage.innerHTML = "You need to enter a title and set a deadline for your listing";
+        const errorMessage = document.getElementById("newListingError");
+        errorMessage.innerHTML = "Title and deadline is required to publish";
     }
 })

@@ -8,14 +8,14 @@ let profileLink = "./login.html";
 if (token) {
     navElement = `            
     <a href="./profile.html" class="text-gray">${username}</a>
-    <a href="/" class="bg-secondary font-bold text-main px-2 py-1 rounded logOutBtn">Logout</a>
+    <a href="/" class=" text-secondary font-bold border px-2 py-1 rounded logOutBtn">Logout</a>
     `
     sellLink = "./sell.html";
     profileLink = "./profile.html";
 } else {
     navElement = `            
-    <a href="./login.html" class="hover:text-gray">Login</a>
-    <a href="./register.html" class="bg-accent font-bold text-secondary px-2 py-1 rounded">Register</a>
+    <a href="./login.html" class="border px-2 py-1 rounded border-accent font-bold text-accent">Login</a>
+    <a href="./register.html" class="bg-accent font-bold text-main px-2 py-1 border border-accent rounded">Register</a>
     `
 }
 
@@ -32,7 +32,7 @@ export let navbar = document.querySelector("#navbar").innerHTML = `
                 <a href="${profileLink}" class="hover:text-gray">Profile</a>
             </div>
         </div>
-        <div class="hidden md:flex items-center gap-2">${navElement}</div>
+        <div class="hidden md:flex items-center gap-4">${navElement}</div>
         <div class="block md:hidden">
             <button id="toggleMobileMenu">
             <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ export let navbar = document.querySelector("#navbar").innerHTML = `
             <a href="${sellLink}" class="hover:text-gray">Sell</a>
             <a href="${profileLink}" class="hover:text-gray">Profile</a>
         </div>
-        <div class="flex mt-20 flex-row items-center justify-between gap-2">${navElement}</div>
+        <div class="flex mt-20 flex-row items-center justify-between gap-4">${navElement}</div>
     </div>
 </section>
 `
