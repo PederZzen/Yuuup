@@ -11,7 +11,8 @@
 - [Project Planning](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#project-planning)
   - [Style Guide](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#style-guide)
   - [Gantt Chart](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#gantt-chart)
-  - [Wireframe and Prototype](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe-and-prototype) -[Setup](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#setup)
+  - [Wireframe and Prototype](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe-and-prototype)
+- [Setup](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#setup)
 
 &nbsp;
 
