@@ -1,6 +1,6 @@
 # Semester Project 2
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a5b135dd-506b-4aa4-b44a-abee25a67172/deploy-status)](https://app.netlify.com/sites/yupauctions/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4cee9b5-ff32-40ec-9db3-9b32290e3f94/deploy-status)](https://app.netlify.com/sites/yuup/deploys)
 
 [Assignment](https://github.com/PederZzen/Semester-project-2/files/10056804/semester.project.2.pdf)
 
