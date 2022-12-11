@@ -6,10 +6,6 @@
 
 &nbsp;
 
-All illustrations used in this project was created by me using Figma.
-
-&nbsp;
-
 ## Table of Contents
 
 - [Project Planning](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#project-planning)
@@ -68,3 +64,8 @@ Build
 Build and watch
 
 `npm run watch`
+
+&nbsp;
+
+All illustrations used in this project was created by me using Figma.
+
