@@ -22,7 +22,7 @@ export let placeBid = (e) => {
     if (isNaN(amount) || amount.length == "") {
         bidInput.value = ""
         bidInput.setAttribute("placeholder", "Bid must be a number");
-    } else if (confirm("Are you sure you wanna use you well earned, free credits on this item?") == true) {
+    } else if (confirm("Are you sure you wanna use your well earned, free credits on this item?") == true) {
         bidOnItem(bidUrl, data)
     }
 }
