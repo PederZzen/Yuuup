@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a profile page on the awesome auction site called Yuuup!">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./src/js/index.js" type="module" defer></script>
+    <script src="./src/js/profile.js" type="module"  defer></script>
+    <script src="./src/js/updateMedia.js" type="module"  defer></script>
+    <title>Yuuup! | Auction</title>
+</head>
+<body class="bg-secondary text-main relative min-h-screen">
+    <header>
+        <nav id="navbar"></nav>
+    </header>
+    <main class="pb-40">
+        <section id="hero"></section>
+        <section class="mt-20 max-w-7xl mx-auto px-2 md:px-8">
+            <h2 class="font-bold text-xl text-gray">All Listings</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-10" id="listings"></div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>

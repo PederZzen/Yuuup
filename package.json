@@ -18,7 +18,7 @@
     "url": "https://github.com/PederZzen/Semester-project-2/issues"
   },
   "homepage": "https://github.com/PederZzen/Semester-project-2#readme",
-  "devDependencies": {
+  "dependencies": {
     "tailwindcss": "^3.2.4"
   }
 }

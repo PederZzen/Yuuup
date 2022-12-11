@@ -1,5 +1,7 @@
 # Semester Project 2
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4cee9b5-ff32-40ec-9db3-9b32290e3f94/deploy-status)](https://app.netlify.com/sites/yuup/deploys)
+
 [Assignment](https://github.com/PederZzen/Semester-project-2/files/10056804/semester.project.2.pdf)
 
 &nbsp;
@@ -7,13 +9,23 @@
 ## Table of Contents
 
 - [Project Planning](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#project-planning)
+  - [Trello](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#trello)
   - [Style Guide](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#style-guide)
   - [Gantt Chart](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#gantt-chart)
-  - [Wireframe and Prototype](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe-and-prototype) -[Setup](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#setup)
+  - [Wireframe and Prototype](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe-and-prototype)
+- [Setup](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#setup)
 
 &nbsp;
 
 ## Project planning
+
+&nbsp;
+
+### Trello
+
+[This is a link to the Trello board i used](https://trello.com/invite/b/ezrVJaoP/ATTIcf8549d706823b1c23d4f09b91195a207913AF2E/semester-project-2)
+
+&nbsp;
 
 ### Style Guide
 

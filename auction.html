@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to the awesome auction house called Yuuup! See something you fancy? Place a bid with your free 1000 credits!">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./dist/style.css">
     <script src="./src/js/index.js" type="module" defer></script>
     <script src="./src/js/listings.js" type="module" defer></script>
-    <title>Yup! | Auction</title>
+    <title>Yuuup! | Auction</title>
 </head>
-<body class="bg-secondary">
+<body class="bg-secondary min-h-screen relative min-w-40">
     <header>
         <nav id="navbar"></nav>
     </header>
-    <main class="text-main">
-        <div class="text-center mt-40">
-            <h1 class="text-xl font-extrabold">Auction</h1>
-            <h2 class="text-md font-bold text-gray mt-1">Brand new, collectors items and stolen </br>stuff. We got it all!</h2>
+    <main class="text-main pb-40">
+        <section class="mt-20 max-w-7xl mx-auto px-2 md:px-8">
+            <div class="text-center mt-20" id="auctionHero">
+                <h1 class="text-xl font-extrabold">Auction</h1>
+                <h2 class="text-md font-bold text-gray mt-1">Brand new, collectors items and stolen </br>stuff. We got it all!</h2>
+            </div>
+            <div class="flex mt-10 w-full">
+                <input id="auctionSearch" class="bg-secondary p-2 border w-full max-w-sm rounded" type="text" placeholder="Search for seller or item..">
+            </div>
+        </section>
+        <section class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-20 max-w-7xl mx-auto px-2 md:px-8" id="listings"></section>
+        <div id="errorMsg"></div>
+        <div id="loadingSpinner" class="text-center flex flex-col items-center">
+            <img src="./img/Eclipse-1s-200px.gif" alt="Loading icon">
+            <span class="font-bold font-montserrat">Loading Items...</span>
         </div>
-        <section class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-7xl mx-auto px-2 md:px-8 mt-20" id="auctionItems"></section>
     </main>
+    <footer></footer>
 </body>
 </html>

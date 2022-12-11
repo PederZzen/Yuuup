@@ -12,8 +12,6 @@ const emailError = document.querySelector("#emailError");
 const passwordError = document.querySelector("#passwordError");
 const repeatPasswordError = document.querySelector("#repeatPasswordError");
 
-let formIsValid = false;
-
 let validateForm = (e) => {
     e.preventDefault();
 
@@ -39,7 +37,7 @@ let validateForm = (e) => {
             validName = true;
             nameError.innerHTML = "&nbsp;";
         } else {
-            nameError.innerHTML = "* The name value must not contain punctuation symbols apart from underscore (_)"
+            nameError.innerHTML = "* The name must not contain punctuation symbols apart from underscore (_)"
         }
     } else {
         nameError.innerHTML = "* Please fill in username"
@@ -50,7 +48,7 @@ let validateForm = (e) => {
             validEmail = true;
             emailError.innerHTML = "&nbsp;"
         } else {
-            emailError.innerHTML = "* The email value must be a valid stud.noroff.no or noroff.no email address";
+            emailError.innerHTML = "* The email must be a stud.noroff.no or noroff.no email address";
         } 
     } else {
         emailError.innerHTML = "* Please fill in email"
@@ -69,7 +67,6 @@ let validateForm = (e) => {
     }
 
     if (validName && validEmail && validPassword) {
-        formIsValid = true;
         registerUser(registerUrl, userToRegister)
     }
 }

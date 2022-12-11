@@ -4,50 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="New stuff, old stuff, broken stuff, stolen stuff. All the stuff! Welcome to Yuuup! Your online auction house">
     <link rel="stylesheet" href="./dist/style.css">
     <script src="./src/js/index.js" type="module" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet"> 
-    <title>Yup! | Auctions in Your Own Livingroom</title>
+    <title>Yuuup! | Auctions in Your Own Livingroom</title>
 </head>
-<body class="bg-secondary font-montserrat">
+<body class="bg-secondary font-montserrat relative overflow-x-hidden">
     <header>
         <nav id="navbar"></nav>
     </header>
     <main>
-        <section class="bg-main hero">
-            <div class="flex justify-between mx-auto max-w-7xl px-2 md:px-8">
-                <div class="text-secondary">
-                    <h1 class="text-5xl font-bold mt-64">Some stuff to get </br>you to buy stuff.</h1>
-                    <h2 class="text-xl font-semibold">Information about the stuff</h2>
-                    <a href="./auction.html" class="mt-4 bg-accent inline-block rounded py-1 px-4 hover:bg-main hover:border hover:border-accent hover:text-accent font-bold">Buy stuff!</a>
+        <section class="bg-main h-screen">
+            <div class="flex flex-col h-1/2 mx-auto max-w-7xl relative px-8">
+                <div class="text-secondary w-full lg:w-1/2">
+                    <h1 class="text-5xl font-bold mt-40 md:mt-64">All the stuff you</br> dont want or need.</h1>
+                    <h2 class="text-xl mt-2 font-semibold">In one place!</h2>
+                    <a href="./auction.html" class="mt-4 bg-accent inline-block text-main border border-accent rounded py-1 px-4 hover:bg-main hover:border hover:border-accent hover:text-accent font-bold">Buy stuff!</a>
                 </div>
-                <div>
-                    <img src="./img/auction_hammer.svg" alt="Auction Hammer" class="top-40">
-                </div>
-            </div>
-        </section>
-
-        <section class="mt-20 mx-auto max-w-7xl text-center">
-            <h2 class="font-bold text-xl">New Listings</h2>
-            <div class="itemSlider"></div>
-        </section>
-
-        <section class="bg-main mt-20">
-            <div class="flex justify-between mx-auto max-w-7xl px-2 md:px-8">
-                <div class="text-secondary">
-                    <h2 class="text-4xl font-bold mt-40">Sell with us!</h2>
-                    <h3 class="text-xl font-medium">Auction your mothers stuff,</br> and get rich. Today!</h3>
-                    <a href="./sell.html" class="mt-4 bg-accent inline-block rounded py-1 px-4 hover:bg-main hover:border hover:border-accent hover:text-accent font-bold">Sell stuff</a>
-                </div>
-                <img src="./img/money.svg" alt="Drawing of money" class="">
+                <img class="w-4/5 md:w-2/3 max-w-7xl -right-40 top-36 mx-auto mt-20 md:mt-1 md:absolute" src="./img/auction_hammer.svg" alt="Auction Hammer">
+                <svg class="absolute -left-20 hidden md:block top-32" width="547" height="224" viewBox="0 0 547 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.03" d="M68.25 175V103.5L77.5 128L0.5 -1.19209e-05H43.5L102.5 98.25H77.75L137 -1.19209e-05H176.75L99.75 128L108.75 103.5V175H68.25ZM231.406 177C220.24 177 210.24 174.833 201.406 170.5C192.74 166.167 185.99 159.583 181.156 150.75C176.323 141.75 173.906 130.333 173.906 116.5V40.5H212.906V110.75C212.906 121.917 215.24 130.167 219.906 135.5C224.74 140.667 231.49 143.25 240.156 143.25C246.156 143.25 251.49 142 256.156 139.5C260.823 136.833 264.49 132.833 267.156 127.5C269.823 122 271.156 115.167 271.156 107V40.5H310.156V175H273.156V138L279.906 148.75C275.406 158.083 268.74 165.167 259.906 170C251.24 174.667 241.74 177 231.406 177ZM418.287 177C406.954 177 397.037 174.5 388.537 169.5C380.037 164.5 373.37 156.917 368.537 146.75C363.87 136.417 361.537 123.417 361.537 107.75C361.537 91.9167 363.787 78.9167 368.287 68.75C372.787 58.5833 379.287 51 387.787 46C396.287 41 406.454 38.5 418.287 38.5C430.954 38.5 442.287 41.4167 452.287 47.25C462.454 52.9167 470.454 60.9167 476.287 71.25C482.287 81.5833 485.287 93.75 485.287 107.75C485.287 121.917 482.287 134.167 476.287 144.5C470.454 154.833 462.454 162.833 452.287 168.5C442.287 174.167 430.954 177 418.287 177ZM338.787 223.5V40.5H376.037V68L375.287 108L377.787 147.75V223.5H338.787ZM411.537 145C418.037 145 423.787 143.5 428.787 140.5C433.954 137.5 438.037 133.25 441.037 127.75C444.204 122.083 445.787 115.417 445.787 107.75C445.787 99.9167 444.204 93.25 441.037 87.75C438.037 82.25 433.954 78 428.787 75C423.787 72 418.037 70.5 411.537 70.5C405.037 70.5 399.204 72 394.037 75C388.87 78 384.787 82.25 381.787 87.75C378.787 93.25 377.287 99.9167 377.287 107.75C377.287 115.417 378.787 122.083 381.787 127.75C384.787 133.25 388.87 137.5 394.037 140.5C399.204 143.5 405.037 145 411.537 145ZM506.645 114.25L498.895 -1.19209e-05H545.395L537.645 114.25H506.645ZM522.145 177C515.145 177 509.395 174.75 504.895 170.25C500.395 165.75 498.145 160.417 498.145 154.25C498.145 147.917 500.395 142.667 504.895 138.5C509.395 134.167 515.145 132 522.145 132C529.311 132 535.061 134.167 539.395 138.5C543.895 142.667 546.145 147.917 546.145 154.25C546.145 160.417 543.895 165.75 539.395 170.25C535.061 174.75 529.311 177 522.145 177Z" fill="white"/>
+                </svg>                  
             </div>
         </section>
     </main>
-    <footer class="bg-main mt-20 text-secondary">
-        <div class="mx-auto max-w-7xl px-2 md:px-8 py-4 font-bold text-center">
-            <a href="./index.html" class="text-xl my-4">Yup!</a>
-            <p>&#169; All rights reserved</p>
-        </div>
-    </footer>
 </body>
 </html>

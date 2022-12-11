@@ -4,32 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up to Yuuup! and start selling stuff you dont want, and buy stuff you dont need, today!">
     <link rel="stylesheet" href="./dist/style.css">
     <script src="./src/js/register.js" type="module" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet"> 
-    <title>Yup! | Register</title>
+    <title>Yuuup! | Register</title>
 </head>
 <body class="bg-main font-montserrat">
-    <section class="flex max-w-7xl mx-auto mt-20 justify-between  px-2 md:px-8">
-        <div>
-            <svg width="503" height="526" viewBox="0 0 503 526" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0.5" y="64.5" width="141" height="141" fill="#373737" stroke="#F5F5F5"/>
-                <rect x="213.5" y="0.5" width="68" height="68" fill="#373737" stroke="#F5F5F5"/>
-                <rect x="97.5" y="376.5" width="141" height="141" stroke="#FF5C00"/>
-                <rect opacity="0.3" x="196" y="322" width="118" height="118" fill="#F5F5F5"/>
-                <rect x="331" y="115" width="142" height="142" rx="71" fill="#484848"/>
-                <rect opacity="0.3" x="394" y="417" width="109" height="109" fill="#FF5C00"/>
-                <rect opacity="0.3" x="8" y="293" width="147" height="147" fill="#FF5C00"/>
-                <rect x="161.5" y="163.5" width="120" height="120" stroke="#F5F5F5"/>
-                <rect x="248.5" y="233.5" width="120" height="120" stroke="#FF5C00"/>
-            </svg>
-        </div>
-        <div class="text-secondary text-center p-10">
-            <h1 class="my-10 text-2xl font-bold">Yup!</h1>
+    <section class="grid md:grid-cols-2 max-w-7xl mx-auto mt-20 px-2 md:px-8">
+        <img class="hidden md:block w-full" src="./img/squares_illustration.svg" alt="Illustration">
+        <div class="mx-auto text-secondary text-center w-full max-w-sm">
+            <h1 class="my-10 text-2xl font-bold">Yuuup!</h1>
             <h2 class="font-bold">Register new account</h2>
             <span class="text-accent" id="API_ERROR">&nbsp;</span>
-            <form class="flex flex-col mt-5 text-main" id="registerForm">
-                <input type="text" name="name" id="name" placeholder="Name" class="rounded p-2 w-96 text-main">
+            <form class="flex flex-col mt-5 text-main w-full" id="registerForm">
+                <input type="text" name="name" id="name" placeholder="Name" class="rounded p-2 w-96 text-main break-words">
                 <span id="nameError" class="font-medim text-left text-accent">&nbsp;</span>
                 <input type="email" name="email" id="email" placeholder="Email" class="rounded p-2 w-96">
                 <span id="emailError" class="font-medim text-left text-accent">&nbsp;</span>

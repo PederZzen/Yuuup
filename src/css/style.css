@@ -1,27 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.active-link {
-    font-weight: bolder;
-}
-
-.toggleMenu {
-    display: flex;
-    flex-direction: column;  
-}
-
-.card {
-    margin-bottom: 4rem;
-}
-
-.card img {
-    height: 15rem;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.hero {
-    height: 90vh;
-}

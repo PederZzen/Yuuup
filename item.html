@@ -4,18 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy some stuff you dont need on Yuuup! today.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./dist/style.css">
     <script src="./src/js/index.js" type="module" defer></script>
     <script src="./src/js/item.js" type="module"  defer></script>
-    <title>Yup! | Auction</title>
+    <title>Yuuup! | Auction</title>
 </head>
-<body class="bg-secondary">
+<body class="bg-secondary relative min-h-screen">
     <header>
         <nav id="navbar"></nav>
     </header>
-    <main class="text-main">
-        <section class="max-w-7xl mx-auto px-2 md:px-8 mt-20" id="singleItem"></section>
+    <main class="text-main pb-40">
+        <div class="mt-10 max-w-7xl mx-auto px-2 md:px-8 font-montserrat">
+            <ul class="flex">
+                <a href="./index.html"><li>Home |&nbsp;</li></a>
+                <a href="./auction.html"><li>Auction |&nbsp;</li></a>
+                <li class="font-bold" id="breadcrumbs"></li>
+            </ul>
+        </div>
+        <section class="mt-20 max-w-7xl mx-auto px-2 md:px-8 font-montserrat" id="singleItem"></section>
+        <div id="errorMsg"></div>
+        <div id="loadingSpinner" class="text-center flex flex-col items-center">
+            <img src="./img/Eclipse-1s-200px.gif" alt="Loading icon">
+            <span class="font-bold font-montserrat">Loading Item...</span>
+        </div>
     </main>
+    <footer></footer>
 </body>
 </html>
