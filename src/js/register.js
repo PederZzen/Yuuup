@@ -84,7 +84,6 @@ async function registerUser(url, userData) {
         }
         const response = await fetch(url, postData);
         const data = await response.json();
-        console.log(data);
         if (data.statusCode == 400) {
             API_ERROR.innerHTML = `<a href="../../login.html">Profile already exists. Log in instead</a>`
         } 

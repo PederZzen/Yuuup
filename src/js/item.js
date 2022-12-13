@@ -75,9 +75,6 @@ let listItem = (item) => {
         media = item.media;
     }
 
-    console.log(media);
-    
-
     const bids = `        
     <div class="mt-4 flex justify-between">
         <div>
@@ -190,7 +187,6 @@ fetch (itemUrl, {
 })
  .then((response) => response.json())
  .then((data) => {
-    console.log(data);
     listItem(data);
 })
 .catch((error) => {

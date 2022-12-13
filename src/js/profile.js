@@ -119,7 +119,6 @@ let fetchProfileData = (url, listData) => {
      .then((response) => response.json())
      .then((data) => {
         listData(data)
-        console.log(data);
      })
      .catch((error) => {
         console.log(error);

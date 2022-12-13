@@ -1,6 +1,5 @@
 import { listingsUrl } from "./api.js";
 import { token } from "./api.js";
-import { credits } from "./api.js";
 
 const queryString = document.location.search;
 const searchParams = new URLSearchParams(queryString);
