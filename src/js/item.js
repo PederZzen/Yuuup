@@ -61,7 +61,7 @@ let listItem = (item) => {
         })
     } else if (isOwner) {
         bidHistory = `<li><span class="font-bold">Sorry, no bids yet..</li>`
-    }else {
+    } else {
         bidHistory = `<li><span class="font-bold">No bids! Be the first to place a bid on this item?</li>`;
 
     }
@@ -74,6 +74,9 @@ let listItem = (item) => {
     } else {
         media = item.media;
     }
+
+    console.log(media);
+    
 
     const bids = `        
     <div class="mt-4 flex justify-between">
