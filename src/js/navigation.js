@@ -8,13 +8,13 @@ let profileLink = "./login.html";
 if (token) {
     navElement = `            
     <a href="./profile.html" class="text-gray">${username}</a>
-    <a href="/" class=" text-secondary font-bold border px-2 py-1 rounded logOutBtn">Logout</a>
+    <a href="/" class=" text-secondary font-bold border px-2 py-1 rounded logOutBtn">Log out</a>
     `
     sellLink = "./sell.html";
     profileLink = "./profile.html";
 } else {
     navElement = `            
-    <a href="./login.html" class="border px-2 py-1 rounded border-accent font-bold text-accent">Login</a>
+    <a href="./login.html" class="border px-2 py-1 rounded border-accent font-bold text-accent">Log in</a>
     <a href="./register.html" class="bg-accent font-bold text-main px-2 py-1 border border-accent rounded">Register</a>
     `
 }
