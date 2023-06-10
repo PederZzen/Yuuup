@@ -65,6 +65,14 @@ Build and watch
 
 `npm run watch`
 
+Test User
+
+Email: `user1@noroff.no`
+Password: `12345678`
+
+To register new user, email must end with either @noroff.no or @stud.noroff.no. It does not have to be an actual email. Just make something up.
+
+
 &nbsp;
 
 All illustrations used in this project was created by me using Figma.
