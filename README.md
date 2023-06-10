@@ -1,35 +1,30 @@
-# Semester Project 2
+<div align="center">
+    <h3>Semester Project 2</h3>
+    </br>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c4cee9b5-ff32-40ec-9db3-9b32290e3f94/deploy-status)](https://app.netlify.com/sites/yuup/deploys)
 
-[Assignment](https://github.com/PederZzen/Semester-project-2/files/10056804/semester.project.2.pdf)
+</div>
 
-&nbsp;
+---
+
+</br>
 
 ## Table of Contents
 
 - [Project Planning](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#project-planning)
-  - [Trello](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#trello)
-  - [Style Guide](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#style-guide)
-  - [Gantt Chart](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#gantt-chart)
-  - [Wireframe and Prototype](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#wireframe-and-prototype)
+- [Design](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#design)
+- [Technology](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#technology)
 - [Setup](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#setup)
+- [Useful links](https://github.com/PederZzen/Semester-project-2/blob/main/README.md#useful-links)
 
-&nbsp;
+</br>
 
 ## Project planning
 
-&nbsp;
-
-### Trello
+</br>
 
 [This is a link to the Trello board i used](https://trello.com/invite/b/ezrVJaoP/ATTIcf8549d706823b1c23d4f09b91195a207913AF2E/semester-project-2)
-
-&nbsp;
-
-### Style Guide
-
-<img width="50%" alt="Skjermbilde 2022-11-17 kl  14 40 01" src="https://user-images.githubusercontent.com/91594315/202461425-3c4c4f03-e090-4e1c-a34d-dc8ac376e758.png">
 
 &nbsp;
 
@@ -37,9 +32,19 @@
 
 <img width="50%" alt="Skjermbilde 2022-11-16 kl  14 11 45" src="https://user-images.githubusercontent.com/91594315/202190315-6206e280-6ba0-443d-86b4-900273bc210c.png">
 
-&nbsp;
+</br>
 
-### Wireframe and Prototype
+## Design
+
+Design and prototyping were done using Figma
+
+</br>
+
+### Style Guide
+
+<img width="50%" alt="Skjermbilde 2022-11-17 kl  14 40 01" src="https://user-images.githubusercontent.com/91594315/202461425-3c4c4f03-e090-4e1c-a34d-dc8ac376e758.png">
+
+</br>
 
 [Wireframe](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=0%3A1&t=i02IfRRwkKPFmNK2-1)
 
@@ -47,33 +52,30 @@
 
 [Prototype - Mobile](https://www.figma.com/file/NehqquWSIzTwKS1CxRc18c/Wireframe?node-id=44%3A4755&t=i02IfRRwkKPFmNK2-1)
 
-&nbsp;
+<br>
 
-### Setup
+## Technology
 
-&nbsp;
+This project was built using vanilla JavaScript and css. Data is stored in API provided by Noroff School of Technology
 
-Install with node
+</br>
 
-`npm i`
+## Setup
 
-Build
+</br>
 
-`npm run build`
+1. Run `npm i` to install necessary packages
+2. To start project, use `npm run start`
+3. Build with `npm run build`
 
-Build and watch
+</br>
 
-`npm run watch`
+## Useful links
 
-Test User
+</br>
 
-Email: `user1@noroff.no`
-Password: `12345678`
-
-To register new user, email must end with either @noroff.no or @stud.noroff.no. It does not have to be an actual email. Just make something up.
-
+- [Application Demo](https://yuup.netlify.app/)
 
 &nbsp;
 
 All illustrations used in this project was created by me using Figma.
-
