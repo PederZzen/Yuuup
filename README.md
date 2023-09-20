@@ -1,5 +1,6 @@
 <div align="center">
-    <h3>Semester Project 2</h3>
+    <h3>Yuuup!</h3>
+    <p>An auction site built with plain JavaScript.</p>
     </br>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c4cee9b5-ff32-40ec-9db3-9b32290e3f94/deploy-status)](https://app.netlify.com/sites/yuup/deploys)
